@@ -3,7 +3,7 @@ import { template } from "lodash";
 <template>
     <main class="h-100">
         <div class="row h-100">
-            <div class="col-12 col-md-5">
+            <div class="col-12 col-md-2">
                 <div class=" bg-dark text-white h-100 ps-3">
                     <h3>PIZZERIA MELLIZOS!</h3>
                     <ul class="border-top border-warning nav nav-pills flex-column">
@@ -19,7 +19,7 @@ import { template } from "lodash";
                     </ul>
                 </div>
             </div>
-            <div class="col-12 col-md-7 border border-1">
+            <div class="col-12 col-md-10 border border-1">
                 <router-view>
 
                 </router-view>
@@ -29,3 +29,9 @@ import { template } from "lodash";
        
     </main>
 </template>
+
+<script>
+export default {
+    
+}
+</script>

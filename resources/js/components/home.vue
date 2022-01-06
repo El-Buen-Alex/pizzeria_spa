@@ -7,7 +7,7 @@ import { template } from "lodash";
                 <div class="row"> 
                     <div class="col-md-3 col-12">
                       
-                        <img :src="'./images/logo_pizzeria.jpg'" alt='logo_pizzeira_mellizos' class="img-responsive w-100 h-100"/>
+                        <img :src="'../images/logo_pizzeria.jpg'" alt='logo_pizzeira_mellizos' class="img-responsive w-100 h-100"/>
                     </div>
                    <div class="col-md-9 col-12">
                            <h1 class="pt-4  ">PIZZERIA MELLIZOS: BIENVENIDO!</h1>
@@ -20,7 +20,7 @@ import { template } from "lodash";
             </div>       
         </div>
         <router-view v-on:islogin="couldLogIn" >
-            
+
         </router-view>
     </div>
     
@@ -38,7 +38,7 @@ export default {
         logout(){
             axios.post('/api/logout').then(()=>{
                 localStorage.removeItem('session');
-                 this.isLoggedIn= false
+                this.isLoggedIn= false
                 this.$router.push({
                     name:'login'})
             })

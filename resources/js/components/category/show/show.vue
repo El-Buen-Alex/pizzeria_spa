@@ -4,7 +4,7 @@ import { template } from "lodash";
 
 <template>
     <div class="w-100" >
-        <h1>ajam categories</h1>
+        <h1>Todas las Categorias!</h1>
         <div>
             <!-- <router-link :to='{name:createCategory}' class='btn btn-success'><i class="far fa-plus-square pe-1"></i>NUEVA CATEGORIA</router-link> -->
         </div>

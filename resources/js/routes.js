@@ -36,22 +36,21 @@ export const routes = [
         name:'app',
         path:'/dashboard',
         component: app,
-        // beforeEnter:(to, from, next)=>{
-        //     axios.get('api/authenticated').then(()=>{
-        //         next()
-        //     }).catch(()=>{
-        //         return next({name:'login'})
-        //     })
-        // }
+        children:[
+            {
+                path:'/category/categories',
+                component:showCategory
+            }
+        ]
     },
-    {
-        name:'showCategories',
-        path:'/category/categories',
-        component:showCategory,
-        meta:{
-            authenticated:true
-        }
-    },
+    // {
+    //     name:'showCategories',
+    //     path:'/category/categories',
+    //     component:showCategory,
+    //     meta:{
+    //         authenticated:true
+    //     }
+    // },
     {
         name:'createCategory',
         path:'/category/createCategory',
