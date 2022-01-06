@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Inicio</title>
+    <!-- CSS only -->
+    <style>
+        .fondo{
+    background-image: url('/images/fondo.jpg');
+    background-size: cover;
+background-repeat: no-repeat;
+height: 100%;
+}
+    </style>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/> 
+<link href="{{ mix('css/app.css')}}"  type="text/css" rel="stylesheet" />
+</head>
+<body class="fondo" style="height:100vh; width:100%;">
+    <div  id="app">
+        
+    </div>
+   
+    <script src="{{ mix('js/app.js')}}"  type="text/javascript"></script>
+</body>
+</html>
