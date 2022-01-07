@@ -35,8 +35,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "categorytemplate",
   props: {
@@ -105,7 +103,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       categories: []
     };
   },
-  created: function created() {
+  mounted: function mounted() {
     this.getCategories();
   },
   methods: {
@@ -1086,26 +1084,33 @@ var render = function () {
     _vm._v(" "),
     _c("p", [_vm._v(_vm._s(_vm.category_object.name))]),
     _vm._v(" "),
-    _vm._m(0),
+    _c(
+      "div",
+      { staticClass: "row" },
+      [
+        _c(
+          "button",
+          {
+            staticClass: "col-12 btn btn-success my-1 px-1 w-75",
+            attrs: { type: "button" },
+          },
+          [_vm._v("EDITAR")]
+        ),
+        _vm._v(" "),
+        _c(
+          "router-link",
+          {
+            staticClass: "col-12 btn btn-danger my-1 px-1  w-75",
+            attrs: { to: "/category/deleteCategory", type: "button" },
+          },
+          [_vm._v("ELIMINAR")]
+        ),
+      ],
+      1
+    ),
   ])
 }
-var staticRenderFns = [
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "row" }, [
-      _c(
-        "button",
-        {
-          staticClass: "col-12 btn btn-success my-1 px-1 w-75",
-          attrs: { type: "button" },
-        },
-        [_vm._v("EDITAR")]
-      ),
-    ])
-  },
-]
+var staticRenderFns = []
 render._withStripped = true
 
 

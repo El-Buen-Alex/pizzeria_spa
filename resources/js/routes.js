@@ -49,7 +49,12 @@ export const routes = [
                         name:'createCategory',
                         path:'/category/createCategory',
                         component:createCategory
-                    }
+                    },
+                    {
+                        name:'deleteCategory',
+                        path:'/category/deleteCategory',
+                        component:deleteCategory
+                    },
                 ]
             }
         ]
@@ -72,11 +77,7 @@ export const routes = [
         path:'/category/editCategory',
         component:editCategory
     },
-    {
-        name:'deleteCategory',
-        path:'/category/deleteCategory',
-        component:deleteCategory
-    },
+    
     {
         name:'showproducts',
         path:'/products/showproducts',

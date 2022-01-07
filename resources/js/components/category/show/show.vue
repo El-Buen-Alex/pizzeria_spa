@@ -19,7 +19,7 @@ import { template } from "lodash";
         <!-- <button type="button" class="col-12 btn btn-danger my-1 px-1  w-75" >MOSTRAR</button> -->
          <!-- <modal ref="childComponent"></modal> -->
          <div>
-             <router-view></router-view>
+             <router-view ></router-view>
          </div>
 
     </div>
@@ -36,7 +36,7 @@ export default {
             categories:[]
         }
     },
-    created(){
+    mounted(){
         this.getCategories()
     },
     methods: {

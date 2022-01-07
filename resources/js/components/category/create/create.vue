@@ -1,5 +1,5 @@
 <template>
-    <modal class="container" >
+    <modal class="container" :propertiesConfirmButton=confirmButton :actionConfirmButton=addCategory>
         <div class="row ">
             <div class="col-12">
                 <div class="card" >
@@ -7,11 +7,11 @@
                         <h5 class="card-title">CREAR CATEGORIA</h5>
                     </div>   
                     <div class="card-body">
-                       <form @submit.prevent="addCategory" enctype="multipart/form-data" >
+                       <form  enctype="multipart/form-data" >
                            <div class="row">
                                <div class="col-12 d-flex justify-content-center pb-2">
                                     <img v-show="imagen!==''" :src="imagen" class="" style="width:200px"  :alt="imagen"> 
-                                    <img  :src="'../../../../storage/images/navidad/59VtVkckh8AeoZP4FS5orMmV6Yp5J1LxNKRg3J8Y.jpg'" class="" style="width:200px"  alt="ola"> 
+                                   
                                </div>
                                <div class="col-12 pt-1">
                                     <div class="input-group mb-3">
@@ -31,10 +31,7 @@
                                         <input type="text" class="form-control" v-model="newCategory.description" placeholder="Description" aria-label="description-category" aria-describedby="basic-addon1">
                                     </div>
                                </div>
-                                <div class="col-12">
-                                    <button type="submit" class="btn btn-success" >SAVE</button>
-                               </div>
-                                
+                               
                            </div>
                        </form>
                     </div>
@@ -58,6 +55,10 @@ export default {
                 image: '',
             },
             previewImage: '',
+            confirmButton:{
+                class : 'btn btn-success',
+                text : 'Create Category'
+            }
         }
     },
     methods:{
@@ -73,14 +74,16 @@ export default {
             })
             reader.readAsDataURL(file)
         },
-        addCategory(){
+        async addCategory(){
+            
             let formData = new FormData();
             formData.append('name', this.newCategory.name)
             formData.append('description', this.newCategory.description)
             formData.append('image', this.newCategory.image)
             formData.append('state', this.newCategory.state)
-            axios.post('/api/category', formData).then(response=>{
+            await axios.post('/api/category', formData).then(response=>{
                 console.log(response.data)
+                this.$router.push({name:'showCategories'})
             })
         }
     },

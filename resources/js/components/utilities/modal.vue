@@ -1,10 +1,18 @@
 <template>
 <!-- " -->
-  <div class="overlay" @click="hidepopup">
+  <div class="overlay">
         <div class="popup">
-            <slot />
+            <div class="card">
+                <div class="d-flex flex-row-reverse py-1 pe-1">
+                <button type="button" class="btn-close" aria-label="Close" @click="closepopup"></button>
+                </div>
+                <slot /> 
+                <div class="pb-2 ps-2">
+                    <button type="submit" :class="propertiesConfirmButton.class" @click="actionConfirmButton">{{propertiesConfirmButton.text}}</button>
+                    <button class="btn btn-primary" @click="closepopup">Cancel</button>    
+                </div> 
+            </div>       
         </div>
-
 </div>
   
 </template>
@@ -13,24 +21,33 @@ export default {
     name: 'modal',
     data(){
         return{
-            show:false
+            show:false,
         }
+    },
+    props:{
+        actionConfirmButton:{
+            type:Function,
+            
         },
-        methods:{
-            showpopup(){
-                this.show = true;
-            },
-            hidepopup(e){
-                if(e.target.className!="popup"){
-                     this.show=false;
-                }
-            }
-            },
+        propertiesConfirmButton:{
+            type:Object,
+        }
+    },
+    methods:{ 
+        closepopup(e){
+        const modal=e.target.parentNode.parentNode.parentNode;
+        modal.style.display="none"
+        this.$router.go(-1)
+        },
+        
+    },
+    
             
 }
 </script>
 <style>
 .overlay{
+    
     position:fixed;
     top:0;
     left:0;
@@ -42,6 +59,7 @@ export default {
     align-items:center;
 }
 .popup{
+    
     position: absolute;
     width:80%;
     max-width: 512px;
