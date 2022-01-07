@@ -57,6 +57,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
@@ -764,6 +765,14 @@ var render = function () {
                         ],
                         staticStyle: { width: "200px" },
                         attrs: { src: _vm.imagen, alt: _vm.imagen },
+                      }),
+                      _vm._v(" "),
+                      _c("img", {
+                        staticStyle: { width: "200px" },
+                        attrs: {
+                          src: "../../../../storage/images/navidad/59VtVkckh8AeoZP4FS5orMmV6Yp5J1LxNKRg3J8Y.jpg",
+                          alt: "ola",
+                        },
                       }),
                     ]
                   ),

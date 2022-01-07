@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Category;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 
 class CategoryController extends Controller
@@ -39,20 +40,24 @@ class CategoryController extends Controller
     public function store(Request $request)
     {
         //
-        if($request->file('image')!=null){
-            $image = $request->file('image');
-            $imagename= $image->store($request->name,'public');
-            // $category = Category::create([
-            //     'name'=>$request->name,
-            //     'state'=>$request->state,
-    
-            // ]);
-            // return response()->json([
-            //     'category'=>$category
-            // ]);
-            return $imagename;
-        }
+         return DB::transaction(function () use ($request) {
+
+            if($request->file('image')!=null){
+                $image = $request->image;
+                $url_image= $image->store('','images');
+                $url_image='/images/'.$url_image;
+                 $category = Category::create([
+                     'name'=>$request->name,
+                     'url_img'=>$url_image,
+                     'state'=>$request->state,
         
+                 ]);
+                
+                 return response()->json([
+                     'category'=>$category
+                ]); 
+            }
+         }, 5);
     }
 
     /**

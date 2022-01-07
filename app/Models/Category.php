@@ -8,7 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class Category extends Model
 {
     use HasFactory;
-    protected $name;
-    protected $state;
-    protected $url_img;
+     protected $fillable = [
+         'name',
+         'url_img',
+         'state',
+     ];
+    
+
 }

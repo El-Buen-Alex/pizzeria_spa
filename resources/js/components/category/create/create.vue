@@ -11,6 +11,7 @@
                            <div class="row">
                                <div class="col-12 d-flex justify-content-center pb-2">
                                     <img v-show="imagen!==''" :src="imagen" class="" style="width:200px"  :alt="imagen"> 
+                                    <img  :src="'../../../../storage/images/navidad/59VtVkckh8AeoZP4FS5orMmV6Yp5J1LxNKRg3J8Y.jpg'" class="" style="width:200px"  alt="ola"> 
                                </div>
                                <div class="col-12 pt-1">
                                     <div class="input-group mb-3">
@@ -45,6 +46,7 @@
 
 <script>
 import modal from '../../utilities/modal.vue';
+
 export default {
     data(){
         
