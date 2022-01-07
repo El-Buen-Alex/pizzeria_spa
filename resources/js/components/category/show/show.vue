@@ -6,26 +6,28 @@ import { template } from "lodash";
     <div class="w-100" >
         <h1>Todas las Categorias!</h1>
         <div>
-            <!-- <router-link :to='{name:createCategory}' class='btn btn-success'><i class="far fa-plus-square pe-1"></i>NUEVA CATEGORIA</router-link> -->
+            <router-link to='/category/createCategory' class='btn btn-success'><i class="far fa-plus-square pe-1"></i>NUEVA CATEGORIA</router-link>
         </div>
         <div  class="row w-100 " >
             <!-- <div>{{categoryt.id}}</div>
             <div>{{categoryt.name}}</div>   
             <div>{{categoryt.url_img}}</div>
             <img :src="categoryt.url_img" alt="mmm"> -->
-            <span>------------------------------</span>
-           <categorytemplate v-for="categoryt in categories" :key="categoryt.id" :category_object=categoryt  ></categorytemplate>
-
+            
+           <categorytemplate  v-for="categoryt in categories" :key="categoryt.id" :category_object=categoryt  ></categorytemplate>
         </div>
-        <button type="button" class="col-12 btn btn-danger my-1 px-1  w-75" @click="showModal">MOSTRAR</button>
-         <modal ref="childComponent"></modal>
+        <!-- <button type="button" class="col-12 btn btn-danger my-1 px-1  w-75" >MOSTRAR</button> -->
+         <!-- <modal ref="childComponent"></modal> -->
+         <div>
+             <router-view></router-view>
+         </div>
+
     </div>
    
 </template>
 
 <script>
 import categorytemplate from './plantilla/categorytemplate.vue';
-import modal from '../../utilities/modal.vue';
 export default {
     
     name:"categories",
@@ -51,11 +53,13 @@ export default {
         },
         hideModal(){
             this.$refs.childComponent.hidepopup();
+        },
+        theAreCategories(){
+            return this.categories.length>0
         }
     },
     components: {
-        categorytemplate ,
-        modal 
+        categorytemplate 
     }
    
 }

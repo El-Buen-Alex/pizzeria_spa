@@ -2338,8 +2338,17 @@ var routes = [{
   path: '/dashboard',
   component: app,
   children: [{
+    name: 'showCategories',
     path: '/category/categories',
-    component: showCategory
+    component: showCategory,
+    meta: {
+      authenticated: true
+    },
+    children: [{
+      name: 'createCategory',
+      path: '/category/createCategory',
+      component: createCategory
+    }]
   }]
 }, // {
 //     name:'showCategories',
@@ -2349,11 +2358,12 @@ var routes = [{
 //         authenticated:true
 //     }
 // },
+// {
+//     name:'createCategory',
+//     path:'/category/createCategory',
+//     component:createCategory
+// },
 {
-  name: 'createCategory',
-  path: '/category/createCategory',
-  component: createCategory
-}, {
   name: 'editCategory',
   path: '/category/editCategory',
   component: editCategory

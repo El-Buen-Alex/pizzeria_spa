@@ -1,8 +1,8 @@
 <template>
-
-  <div class="overlay" v-if="show" @click="hidepopup">
+<!-- " -->
+  <div class="overlay" @click="hidepopup">
         <div class="popup">
-            <h1>content</h1>
+            <slot />
         </div>
 
 </div>
@@ -25,7 +25,8 @@ export default {
                      this.show=false;
                 }
             }
-            }
+            },
+            
 }
 </script>
 <style>

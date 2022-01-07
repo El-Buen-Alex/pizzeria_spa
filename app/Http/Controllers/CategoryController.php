@@ -39,10 +39,20 @@ class CategoryController extends Controller
     public function store(Request $request)
     {
         //
-        $category = Category::create($request->post());
-        return response()->json([
-            'category'=>$category
-        ]);
+        if($request->file('image')!=null){
+            $image = $request->file('image');
+            $imagename= $image->store($request->name,'public');
+            // $category = Category::create([
+            //     'name'=>$request->name,
+            //     'state'=>$request->state,
+    
+            // ]);
+            // return response()->json([
+            //     'category'=>$category
+            // ]);
+            return $imagename;
+        }
+        
     }
 
     /**

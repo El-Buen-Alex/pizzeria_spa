@@ -6,13 +6,9 @@ import { template } from "lodash";
                         <p>{{category_object.name}}</p>
                         <div class="row">
                                 <button type="button" class="col-12 btn btn-success my-1 px-1 w-75">EDITAR</button>
-                                <router-link type="button" class="col-12 btn btn-danger my-1 px-1  w-75">ELIMINAR</router-link>
+                                <!-- <router-link type="button" class="col-12 btn btn-danger my-1 px-1  w-75">ELIMINAR</router-link> -->
                         </div>
-                        <div>
-                                <router-view>
-                                        
-                                </router-view>
-                        </div>
+                     
                 </div>
         
 </template>
@@ -26,6 +22,5 @@ export default {
                        required: true
                }
          },
-        
 }
 </script>
