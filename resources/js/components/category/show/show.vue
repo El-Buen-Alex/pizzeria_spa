@@ -6,7 +6,7 @@ import { template } from "lodash";
     <div class="w-100" >
         <h1>Todas las Categorias!</h1>
         <div>
-            <router-link to='/category/createCategory' class='btn btn-success'><i class="far fa-plus-square pe-1"></i>NUEVA CATEGORIA</router-link>
+            <router-link :to='{name:"createCategory"}' class='btn btn-success'><i class="far fa-plus-square pe-1"></i>NUEVA CATEGORIA</router-link>
         </div>
         <div  class="row w-100 " >
             <!-- <div>{{categoryt.id}}</div>
@@ -18,9 +18,9 @@ import { template } from "lodash";
         </div>
         <!-- <button type="button" class="col-12 btn btn-danger my-1 px-1  w-75" >MOSTRAR</button> -->
          <!-- <modal ref="childComponent"></modal> -->
-         <div>
-             <router-view ></router-view>
-         </div>
+         
+             <router-view v-on:updateCategories="getCategories"></router-view>
+         
 
     </div>
    
@@ -29,15 +29,16 @@ import { template } from "lodash";
 <script>
 import categorytemplate from './plantilla/categorytemplate.vue';
 export default {
+    name:'categories',
     
-    name:"categories",
     data(){
         return {
             categories:[]
         }
     },
-    mounted(){
-        this.getCategories()
+    created(){
+        this.getCategories();
+        this. printHola();
     },
     methods: {
        async getCategories(){
@@ -48,19 +49,17 @@ export default {
                 this.categories=[]
             })
         },
-        showModal(){
-            this.$refs.childComponent.showpopup();
-        },
-        hideModal(){
-            this.$refs.childComponent.hidepopup();
-        },
-        theAreCategories(){
-            return this.categories.length>0
+       
+        printHola(){
+            console.log('beta miente')
         }
+
     },
     components: {
         categorytemplate 
-    }
+    },
+   
+     
    
 }
 </script>

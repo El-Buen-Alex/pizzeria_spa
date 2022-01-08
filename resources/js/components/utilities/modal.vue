@@ -11,7 +11,8 @@
                     <button type="submit" :class="propertiesConfirmButton.class" @click="actionConfirmButton">{{propertiesConfirmButton.text}}</button>
                     <button class="btn btn-primary" @click="closepopup">Cancel</button>    
                 </div> 
-            </div>       
+            </div>
+       
         </div>
 </div>
   
@@ -45,7 +46,7 @@ export default {
             
 }
 </script>
-<style>
+<style scoped>
 .overlay{
     
     position:fixed;
@@ -53,7 +54,7 @@ export default {
     left:0;
     width:100%;
     height:100%;
-    background-color:rgba(0,0,0,0.384);
+    background-color:rgba(0,0,0,0.1);
     display:flex;
     justify-content:center;
     align-items:center;
@@ -66,7 +67,7 @@ export default {
     background-color:white;
     padding:1rem;
     border-radius: 0.5rem;
-    box-shadow:2px 5px 10px rgba(0,0,0,0.2);
+    box-shadow:2px 5px 10px rgba(0,0,0,0.1);
 }
 
 </style>

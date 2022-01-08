@@ -31,7 +31,7 @@
                                         <input type="text" class="form-control" v-model="newCategory.description" placeholder="Description" aria-label="description-category" aria-describedby="basic-addon1">
                                     </div>
                                </div>
-                               
+                                
                            </div>
                        </form>
                     </div>
@@ -83,7 +83,10 @@ export default {
             formData.append('state', this.newCategory.state)
             await axios.post('/api/category', formData).then(response=>{
                 console.log(response.data)
+                this.$emit('updateCategories')
                 this.$router.push({name:'showCategories'})
+            }).catch(e=>{
+                console.log(e)
             })
         }
     },

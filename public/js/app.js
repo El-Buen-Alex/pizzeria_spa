@@ -19993,7 +19993,13 @@ var render = function () {
                 [
                   _c(
                     "router-link",
-                    { attrs: { to: "/", "aria-current": "page" } },
+                    {
+                      attrs: {
+                        to: "/",
+                        "aria-current": "page",
+                        "exact-active-class": "active",
+                      },
+                    },
                     [_vm._v("INICIO")]
                   ),
                 ],
@@ -20004,9 +20010,16 @@ var render = function () {
                 "li",
                 { staticClass: "nav-item h-25" },
                 [
-                  _c("router-link", { attrs: { to: "/category/categories" } }, [
-                    _vm._v("CATEGORIAS"),
-                  ]),
+                  _c(
+                    "router-link",
+                    {
+                      attrs: {
+                        to: "/category/categories",
+                        "exact-active-class": "active",
+                      },
+                    },
+                    [_vm._v("CATEGORIAS")]
+                  ),
                 ],
                 1
               ),
@@ -20017,7 +20030,12 @@ var render = function () {
                 [
                   _c(
                     "router-link",
-                    { attrs: { to: "/products/showproducts" } },
+                    {
+                      attrs: {
+                        to: "/products/showproducts",
+                        "exact-active-class": "active",
+                      },
+                    },
                     [_vm._v("PRODUCTOS")]
                   ),
                 ],

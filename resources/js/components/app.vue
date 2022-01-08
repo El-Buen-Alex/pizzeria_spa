@@ -8,13 +8,13 @@ import { template } from "lodash";
                     <h3>PIZZERIA MELLIZOS!</h3>
                     <ul class="border-top border-warning nav nav-pills flex-column">
                         <li class="nav-item  h-25 w-25">
-                            <router-link  to="/" aria-current="page">INICIO</router-link>
+                            <router-link  to="/" aria-current="page" exact-active-class="active">INICIO</router-link>
                         </li>
                         <li class="nav-item h-25">
-                            <router-link  to="/category/categories" >CATEGORIAS</router-link>
+                            <router-link  to="/category/categories" exact-active-class="active">CATEGORIAS</router-link>
                         </li>
                         <li class="nav-item h-25"> 
-                            <router-link to="/products/showproducts">PRODUCTOS</router-link>
+                            <router-link to="/products/showproducts" exact-active-class="active">PRODUCTOS</router-link>
                         </li>
                     </ul>
                 </div>

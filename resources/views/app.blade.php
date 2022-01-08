@@ -15,7 +15,7 @@
 <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/> 
 <link href="{{ mix('css/app.css')}}"  type="text/css" rel="stylesheet" />
 </head>
-<body class="fondo" style="height:100vh; width:100%;">
+<body  style="height:100vh; width:100%;">
     <div  id="app">
         
     </div>
