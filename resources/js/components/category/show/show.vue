@@ -49,7 +49,12 @@ export default {
                 this.categories=[]
             })
         },
-       
+       showModal(){
+            this.$refs.childComponent.showpopup();
+        },
+        hideModal(){
+            this.$refs.childComponent.hidepopup();
+        },
         printHola(){
             console.log('beta miente')
         }

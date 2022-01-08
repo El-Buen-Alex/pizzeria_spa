@@ -132,6 +132,12 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         }, _callee);
       }))();
     },
+    showModal: function showModal() {
+      this.$refs.childComponent.showpopup();
+    },
+    hideModal: function hideModal() {
+      this.$refs.childComponent.hidepopup();
+    },
     printHola: function printHola() {
       console.log('beta miente');
     }
