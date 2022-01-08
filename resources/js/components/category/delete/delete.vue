@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <template>
     <modal-vue :actionConfirmButton=deleteCategory :propertiesConfirmButton=confirmButton>
         
@@ -39,3 +40,5 @@ export default {
     }
 }
 </script>
+=======
+>>>>>>> parent of 91f11b7 (create casi terminado, falta validar)

@@ -18,9 +18,15 @@ import { template } from "lodash";
         </div>
         <!-- <button type="button" class="col-12 btn btn-danger my-1 px-1  w-75" >MOSTRAR</button> -->
          <!-- <modal ref="childComponent"></modal> -->
+<<<<<<< HEAD
          
              <router-view v-on:updateCategories="getCategories"></router-view>
          
+=======
+         <div>
+             <router-view></router-view>
+         </div>
+>>>>>>> parent of 91f11b7 (create casi terminado, falta validar)
 
     </div>
    
@@ -37,8 +43,12 @@ export default {
         }
     },
     created(){
+<<<<<<< HEAD
         this.getCategories();
         this. printHola();
+=======
+        this.getCategories()
+>>>>>>> parent of 91f11b7 (create casi terminado, falta validar)
     },
     methods: {
        async getCategories(){

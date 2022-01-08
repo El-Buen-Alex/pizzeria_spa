@@ -1,7 +1,8 @@
 <template>
 <!-- " -->
-  <div class="overlay">
+  <div class="overlay" @click="hidepopup">
         <div class="popup">
+<<<<<<< HEAD
             <div class="card">
                 <div class="d-flex flex-row-reverse py-1 pe-1">
                 <button type="button" class="btn-close" aria-label="Close" @click="closepopup"></button>
@@ -13,7 +14,11 @@
                 </div> 
             </div>
        
+=======
+            <slot />
+>>>>>>> parent of 91f11b7 (create casi terminado, falta validar)
         </div>
+
 </div>
   
 </template>
@@ -22,33 +27,24 @@ export default {
     name: 'modal',
     data(){
         return{
-            show:false,
+            show:false
         }
-    },
-    props:{
-        actionConfirmButton:{
-            type:Function,
-            
         },
-        propertiesConfirmButton:{
-            type:Object,
-        }
-    },
-    methods:{ 
-        closepopup(e){
-        const modal=e.target.parentNode.parentNode.parentNode;
-        modal.style.display="none"
-        this.$router.go(-1)
-        },
-        
-    },
-    
+        methods:{
+            showpopup(){
+                this.show = true;
+            },
+            hidepopup(e){
+                if(e.target.className!="popup"){
+                     this.show=false;
+                }
+            }
+            },
             
 }
 </script>
 <style scoped>
 .overlay{
-    
     position:fixed;
     top:0;
     left:0;
@@ -60,7 +56,6 @@ export default {
     align-items:center;
 }
 .popup{
-    
     position: absolute;
     width:80%;
     max-width: 512px;

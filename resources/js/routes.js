@@ -49,6 +49,7 @@ export const routes = [
                         name:'createCategory',
                         path:'/category/createCategory',
                         component:createCategory
+<<<<<<< HEAD
                     },
                     {
                         name:'deleteCategory',
@@ -56,6 +57,9 @@ export const routes = [
                         component:deleteCategory
                     },
                     
+=======
+                    }
+>>>>>>> parent of 91f11b7 (create casi terminado, falta validar)
                 ]
             }
         ]
@@ -78,7 +82,11 @@ export const routes = [
         path:'/category/editCategory',
         component:editCategory
     },
-    
+    {
+        name:'deleteCategory',
+        path:'/category/deleteCategory',
+        component:deleteCategory
+    },
     {
         name:'showproducts',
         path:'/products/showproducts',
