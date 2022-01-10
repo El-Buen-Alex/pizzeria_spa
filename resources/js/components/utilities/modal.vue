@@ -1,6 +1,6 @@
 <template>
 <!-- " -->
-  <div class="overlay">
+  <div class="overlay" >
         <div class="popup">
             <div class="card">
                 <div class="d-flex flex-row-reverse py-1 pe-1">

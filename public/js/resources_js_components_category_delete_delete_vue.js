@@ -40,11 +40,22 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     deleteCategory: function deleteCategory(e) {
+      var _this = this;
+
       console.log(e);
+      this.axios["delete"]("/api/category/".concat(this.objectA.id)).then(function (response) {
+        _this.$emit('updateCategories');
+
+        _this.$router.push({
+          name: 'showCategories'
+        });
+      })["catch"](function (e) {
+        console.log(e);
+      });
     }
   },
   props: {
-    object: {
+    objectA: {
       type: Object
     }
   }
@@ -694,7 +705,11 @@ var render = function () {
         _c("h5", { staticClass: "card-title" }, [_vm._v("DELETE CATEGORY")]),
         _vm._v(" "),
         _c("p", { staticClass: "card-text" }, [
-          _vm._v("Are you sure you want to remove the  category permanently?"),
+          _vm._v(
+            "Are you sure you want to remove the " +
+              _vm._s(_vm.objectA.name) +
+              " category permanently?"
+          ),
         ]),
       ]),
     ]

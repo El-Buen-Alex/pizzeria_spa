@@ -17,7 +17,7 @@ class CategoryController extends Controller
     public function index()
     {
         //
-        $categories=Category::all();
+        $categories=Category::all()->where('state','A');
         return response()->json($categories);
     }
 
@@ -93,7 +93,12 @@ class CategoryController extends Controller
     public function update(Request $request, Category $category)
     {
         //
-        $category->fill($request->post())->save();
+        //$category->fill($request->post())->save();
+        
+        dd($request);
+        $category->name=$request->name;
+
+        $category->save();
         return response()->json([
             'category'=>$category
         ]);

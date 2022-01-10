@@ -91,6 +91,9 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       }
     };
   },
+  created: function created() {
+    this.setPropDefault();
+  },
   methods: {
     getImage: function getImage(e) {
       var file = e.target.files[0];
@@ -142,6 +145,61 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
           }
         }, _callee);
       }))();
+    },
+    setPropDefault: function setPropDefault() {
+      if (this.objectA) {
+        this.newCategory = this.objectA;
+        console.log(this.newCategory);
+        this.previewImage = this.objectA.url_img;
+        this.confirmButton = {
+          "class": 'btn btn-success',
+          text: 'Update Category'
+        };
+      }
+    },
+    returnAction: function returnAction() {
+      if (this.objectA) {
+        return this.updateCategory();
+      } else {
+        return this.addCategory();
+      }
+    },
+    updateCategory: function updateCategory() {
+      var _this3 = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee2() {
+        var formData;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee2$(_context2) {
+          while (1) {
+            switch (_context2.prev = _context2.next) {
+              case 0:
+                console.log("olap");
+                formData = new FormData();
+                formData.append('id', _this3.newCategory.id);
+                formData.append('name', _this3.newCategory.name);
+                formData.append('description', _this3.newCategory.description);
+                formData.append('image', _this3.newCategory.image);
+                formData.append('state', _this3.newCategory.state);
+                _context2.next = 9;
+                return _this3.axios.put("/api/category/".concat(_this3.newCategory.id), formData).then(function (response) {
+                  console.log(response.data);
+
+                  _this3.$emit('updateCategories');
+
+                  _this3.$router.push({
+                    name: 'showCategories'
+                  });
+                })["catch"](function (e) {
+                  console.log(e);
+                });
+
+              case 9:
+              case "end":
+                return _context2.stop();
+            }
+          }
+        }, _callee2);
+      }))();
     }
   },
   computed: {
@@ -151,6 +209,11 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
   },
   components: {
     modal: _utilities_modal_vue__WEBPACK_IMPORTED_MODULE_1__["default"]
+  },
+  props: {
+    objectA: {
+      type: Object
+    }
   }
 });
 
@@ -1563,10 +1626,9 @@ var render = function () {
   return _c(
     "modal",
     {
-      staticClass: "container",
       attrs: {
         propertiesConfirmButton: _vm.confirmButton,
-        actionConfirmButton: _vm.addCategory,
+        actionConfirmButton: _vm.returnAction,
       },
     },
     [

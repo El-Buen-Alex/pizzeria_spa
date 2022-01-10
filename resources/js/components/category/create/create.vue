@@ -1,5 +1,5 @@
 <template>
-    <modal class="container" :propertiesConfirmButton=confirmButton :actionConfirmButton=addCategory>
+    <modal  :propertiesConfirmButton=confirmButton :actionConfirmButton=returnAction>
         <div class="row ">
             <div class="col-12">
                 <div class="card" >
@@ -22,7 +22,7 @@
                                 <div class="col-12">
                                     <div class="input-group mb-3">
                                         <span class="input-group-text" id="basic-addon1"><i class="fab fa-adn"></i> Name:</span>
-                                        <input type="text" class="form-control" v-model="newCategory.name" placeholder="Name Category" aria-label="name-category" aria-describedby="basic-addon1">
+                                        <input type="text" class="form-control" v-model="newCategory.name" placeholder="Name Category" aria-label="name-category" aria-describedby="basic-addon1" >
                                     </div>
                                </div>
                                 <div class="col-12">
@@ -45,8 +45,7 @@
 import modal from '../../utilities/modal.vue';
 
 export default {
-    data(){
-        
+    data(){      
         return{
             newCategory:{
                 name: '',
@@ -60,6 +59,9 @@ export default {
                 text : 'Create Category'
             }
         }
+    },
+    created(){
+        this.setPropDefault();
     },
     methods:{
         getImage(e){
@@ -88,7 +90,45 @@ export default {
             }).catch(e=>{
                 console.log(e)
             })
-        }
+        },
+        setPropDefault(){
+            if(this.objectA){
+                 this.newCategory=this.objectA;
+                 console.log(this.newCategory)
+                 this.previewImage=this.objectA.url_img;
+                 this.confirmButton={
+                    class : 'btn btn-success',
+                    text : 'Update Category'
+                 }
+            }
+           
+        },
+        returnAction(){
+            if(this.objectA){
+                return this.updateCategory();
+            }else{
+                return this.addCategory();
+            }
+        },
+        async updateCategory(){
+            console.log("olap")
+             let  formData = new FormData();
+             formData.append('id', this.newCategory.id)
+            formData.append('name', this.newCategory.name)
+            formData.append('description', this.newCategory.description)
+            formData.append('image', this.newCategory.image)
+            formData.append('state', this.newCategory.state)
+            
+           
+             await this.axios.put(`/api/category/${this.newCategory.id}`, formData).then(response=>{
+                console.log(response.data)
+                 this.$emit('updateCategories')
+                 this.$router.push({name:'showCategories'})
+             }).catch(e=>{
+                console.log(e)
+             })
+        },
+        
     },
     computed:{
         imagen(){
@@ -97,6 +137,11 @@ export default {
     },
     components:{
         modal
+    },
+    props:{
+        objectA:{
+            type:Object,
+        }
     }
 }
 </script>
