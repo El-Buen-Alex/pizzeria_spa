@@ -48,16 +48,13 @@ export const routes = [
                     {
                         name:'createCategory',
                         path:'/category/createCategory',
-                        component:createCategory
-
+                        component:createCategory,
                     },
                     {
                         name:'deleteCategory',
                         path:'/category/deleteCategory',
                         component:deleteCategory
                     },
-                    
-
                 ]
             }
         ]

@@ -36,10 +36,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-<<<<<<< HEAD
-=======
 //
->>>>>>> parent of 91f11b7 (create casi terminado, falta validar)
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "categorytemplate",
   props: {
@@ -1086,7 +1083,6 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-<<<<<<< HEAD
   return _c("div", { staticClass: "col-md-3 col-12 px-2 " }, [
     _c("div", [_vm._v(_vm._s(_vm.category_object.id))]),
     _vm._v(" "),
@@ -1111,20 +1107,6 @@ var render = function () {
               return _vm.$emit("sendToUpdate")
             },
           },
-=======
-<<<<<<< HEAD
-  return _c(
-    "div",
-    { staticClass: "col-md-3 col-12 px-2" },
-    [
-      _c("div", [_vm._v(_vm._s(_vm.category_object.id))]),
-      _vm._v(" "),
-      _c("img", {
-        staticClass: " w-75",
-        attrs: {
-          src: _vm.category_object.url_img,
-          alt: _vm.category_object.name,
->>>>>>> f5f34cfa8c8540444f9a699bd4a12e3c2ab179d4
         },
         [_vm._v("EDITAR")]
       ),
@@ -1146,51 +1128,10 @@ var render = function () {
         },
         [_vm._v("ELIMINAR")]
       ),
-<<<<<<< HEAD
     ]),
   ])
-=======
-      _vm._v(" "),
-      _c("router-view"),
-    ],
-    1
-  )
-=======
-  return _c("div", { staticClass: "col-md-3 col-12 px-2" }, [
-    _c("div", [_vm._v(_vm._s(_vm.category_object.id))]),
-    _vm._v(" "),
-    _c("img", {
-      staticClass: " w-75",
-      attrs: {
-        src: _vm.category_object.url_img,
-        alt: _vm.category_object.name,
-      },
-    }),
-    _vm._v(" "),
-    _c("p", [_vm._v(_vm._s(_vm.category_object.name))]),
-    _vm._v(" "),
-    _vm._m(0),
-  ])
->>>>>>> parent of 91f11b7 (create casi terminado, falta validar)
->>>>>>> f5f34cfa8c8540444f9a699bd4a12e3c2ab179d4
 }
-var staticRenderFns = [
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "row" }, [
-      _c(
-        "button",
-        {
-          staticClass: "col-12 btn btn-success my-1 px-1 w-75",
-          attrs: { type: "button" },
-        },
-        [_vm._v("EDITAR")]
-      ),
-    ])
-  },
-]
+var staticRenderFns = []
 render._withStripped = true
 
 

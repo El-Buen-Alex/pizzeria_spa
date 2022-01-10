@@ -1,5 +1,15 @@
-"use strict";
 (self["webpackChunk"] = self["webpackChunk"] || []).push([["resources_js_components_category_create_create_vue"],{
+
+/***/ "./node_modules/@babel/runtime/regenerator/index.js":
+/*!**********************************************************!*\
+  !*** ./node_modules/@babel/runtime/regenerator/index.js ***!
+  \**********************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+module.exports = __webpack_require__(/*! regenerator-runtime */ "./node_modules/regenerator-runtime/runtime.js");
+
+
+/***/ }),
 
 /***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/category/create/create.vue?vue&type=script&lang=js&":
 /*!*****************************************************************************************************************************************************************************************************************************!*\
@@ -7,12 +17,20 @@
   \*****************************************************************************************************************************************************************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _utilities_modal_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../utilities/modal.vue */ "./resources/js/components/utilities/modal.vue");
-//
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _utilities_modal_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../utilities/modal.vue */ "./resources/js/components/utilities/modal.vue");
+
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
 //
 //
 //
@@ -68,7 +86,11 @@ __webpack_require__.r(__webpack_exports__);
         state: 'A',
         image: ''
       },
-      previewImage: ''
+      previewImage: '',
+      confirmButton: {
+        "class": 'btn btn-success',
+        text: 'Create Category'
+      }
     };
   },
   created: function created() {
@@ -92,41 +114,24 @@ __webpack_require__.r(__webpack_exports__);
       reader.readAsDataURL(file);
     },
     addCategory: function addCategory() {
-<<<<<<< HEAD
       var _this2 = this;
 
-      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee() {
-        var formData;
-        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
-          while (1) {
-            switch (_context.prev = _context.next) {
-              case 0:
-                formData = new FormData();
-                formData.append('name', _this2.newCategory.name);
-                formData.append('description', _this2.newCategory.description);
-                formData.append('image', _this2.newCategory.image);
-                formData.append('state', _this2.newCategory.state);
-                _context.next = 7;
-                return axios.post('/api/category', formData).then(function (response) {
-                  console.log(response.data);
+      var formData = new FormData();
+      formData.append('name', this.newCategory.name);
+      formData.append('description', this.newCategory.description);
+      formData.append('image', this.newCategory.image);
+      formData.append('state', this.newCategory.state);
+      axios.post('/api/category', formData).then(function (response) {
+        console.log(response.data);
 
-                  _this2.$emit('updateCategories');
+        _this2.$emit('updateCategories');
 
-                  _this2.$router.push({
-                    name: 'showCategories'
-                  });
-                })["catch"](function (e) {
-                  console.log(e);
-                });
-
-              case 7:
-              case "end":
-                return _context.stop();
-            }
-          }
-        }, _callee);
-      }))();
-<<<<<<< HEAD
+        _this2.$router.push({
+          name: 'showCategories'
+        });
+      })["catch"](function (e) {
+        console.log(e);
+      });
     },
     setPropDefault: function setPropDefault() {
       if (this.objectA) {
@@ -149,11 +154,11 @@ __webpack_require__.r(__webpack_exports__);
     updateCategory: function updateCategory() {
       var _this3 = this;
 
-      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee2() {
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee() {
         var formData;
-        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee2$(_context2) {
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
           while (1) {
-            switch (_context2.prev = _context2.next) {
+            switch (_context.prev = _context.next) {
               case 0:
                 console.log("olap");
                 formData = new FormData();
@@ -162,7 +167,7 @@ __webpack_require__.r(__webpack_exports__);
                 formData.append('description', _this3.newCategory.description);
                 formData.append('image', _this3.newCategory.image);
                 formData.append('state', _this3.newCategory.state);
-                _context2.next = 9;
+                _context.next = 9;
                 return _this3.axios.put("/api/category/".concat(_this3.newCategory.id), formData).then(function (response) {
                   console.log(response.data);
 
@@ -177,23 +182,11 @@ __webpack_require__.r(__webpack_exports__);
 
               case 9:
               case "end":
-                return _context2.stop();
+                return _context.stop();
             }
           }
-        }, _callee2);
+        }, _callee);
       }))();
-=======
-=======
-      var formData = new FormData();
-      formData.append('name', this.newCategory.name);
-      formData.append('description', this.newCategory.description);
-      formData.append('image', this.newCategory.image);
-      formData.append('state', this.newCategory.state);
-      axios.post('/api/category', formData).then(function (response) {
-        console.log(response.data);
-      });
->>>>>>> parent of 91f11b7 (create casi terminado, falta validar)
->>>>>>> f5f34cfa8c8540444f9a699bd4a12e3c2ab179d4
     }
   },
   computed: {
@@ -202,16 +195,12 @@ __webpack_require__.r(__webpack_exports__);
     }
   },
   components: {
-<<<<<<< HEAD
     modal: _utilities_modal_vue__WEBPACK_IMPORTED_MODULE_1__["default"]
   },
   props: {
     objectA: {
       type: Object
     }
-=======
-    modal: _utilities_modal_vue__WEBPACK_IMPORTED_MODULE_0__["default"]
->>>>>>> f5f34cfa8c8540444f9a699bd4a12e3c2ab179d4
   }
 });
 
@@ -223,6 +212,7 @@ __webpack_require__.r(__webpack_exports__);
   \**********************************************************************************************************************************************************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
@@ -237,7 +227,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-<<<<<<< HEAD
 //
 //
 //
@@ -247,8 +236,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-=======
->>>>>>> parent of 91f11b7 (create casi terminado, falta validar)
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: 'modal',
   data: function data() {
@@ -256,14 +243,19 @@ __webpack_require__.r(__webpack_exports__);
       show: false
     };
   },
-  methods: {
-    showpopup: function showpopup() {
-      this.show = true;
+  props: {
+    actionConfirmButton: {
+      type: Function
     },
-    hidepopup: function hidepopup(e) {
-      if (e.target.className != "popup") {
-        this.show = false;
-      }
+    propertiesConfirmButton: {
+      type: Object
+    }
+  },
+  methods: {
+    closepopup: function closepopup(e) {
+      var modal = e.target.parentNode.parentNode.parentNode;
+      modal.style.display = "none";
+      this.$router.go(-1);
     }
   }
 });
@@ -276,6 +268,7 @@ __webpack_require__.r(__webpack_exports__);
   \******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
 /***/ ((module, __webpack_exports__, __webpack_require__) => {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
@@ -286,11 +279,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-<<<<<<< HEAD
 ___CSS_LOADER_EXPORT___.push([module.id, "\n.overlay[data-v-02cdd7ed]{\r\n    \r\n    position:fixed;\r\n    top:0;\r\n    left:0;\r\n    width:100%;\r\n    height:100%;\r\n    background-color:rgba(0,0,0,0.1);\r\n    display:flex;\r\n    justify-content:center;\r\n    align-items:center;\n}\n.popup[data-v-02cdd7ed]{\r\n    \r\n    position: absolute;\r\n    width:80%;\r\n    max-width: 512px;\r\n    background-color:white;\r\n    padding:1rem;\r\n    border-radius: 0.5rem;\r\n    box-shadow:2px 5px 10px rgba(0,0,0,0.1);\n}\r\n\r\n", ""]);
-=======
-___CSS_LOADER_EXPORT___.push([module.id, "\n.overlay{\r\n    position:fixed;\r\n    top:0;\r\n    left:0;\r\n    width:100%;\r\n    height:100%;\r\n    background-color:rgba(0,0,0,0.384);\r\n    display:flex;\r\n    justify-content:center;\r\n    align-items:center;\n}\n.popup{\r\n    position: absolute;\r\n    width:80%;\r\n    max-width: 512px;\r\n    background-color:white;\r\n    padding:1rem;\r\n    border-radius: 0.5rem;\r\n    box-shadow:2px 5px 10px rgba(0,0,0,0.2);\n}\r\n\r\n", ""]);
->>>>>>> parent of 91f11b7 (create casi terminado, falta validar)
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -303,6 +292,7 @@ ___CSS_LOADER_EXPORT___.push([module.id, "\n.overlay{\r\n    position:fixed;\r\n
   \*****************************************************/
 /***/ ((module) => {
 
+"use strict";
 
 
 /*
@@ -372,7 +362,6 @@ module.exports = function (cssWithMappingToString) {
 
 /***/ }),
 
-<<<<<<< HEAD
 /***/ "./node_modules/regenerator-runtime/runtime.js":
 /*!*****************************************************!*\
   !*** ./node_modules/regenerator-runtime/runtime.js ***!
@@ -1141,14 +1130,9 @@ try {
 /*!**********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/style-loader/dist/cjs.js!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/utilities/modal.vue?vue&type=style&index=0&id=02cdd7ed&scoped=true&lang=css& ***!
   \**********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
-=======
-/***/ "./node_modules/style-loader/dist/cjs.js!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/utilities/modal.vue?vue&type=style&index=0&lang=css&":
-/*!**********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/style-loader/dist/cjs.js!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/utilities/modal.vue?vue&type=style&index=0&lang=css& ***!
-  \**********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
->>>>>>> parent of 91f11b7 (create casi terminado, falta validar)
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
@@ -1178,6 +1162,7 @@ var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js
   \****************************************************************************/
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
+"use strict";
 
 
 var isOldIE = function isOldIE() {
@@ -1456,6 +1441,7 @@ module.exports = function (list, options) {
   \************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
@@ -1494,6 +1480,7 @@ component.options.__file = "resources/js/components/category/create/create.vue"
   \*****************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
@@ -1534,6 +1521,7 @@ component.options.__file = "resources/js/components/utilities/modal.vue"
   \*************************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
@@ -1549,6 +1537,7 @@ __webpack_require__.r(__webpack_exports__);
   \******************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
@@ -1564,6 +1553,7 @@ __webpack_require__.r(__webpack_exports__);
   \**************************************************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _node_modules_style_loader_dist_cjs_js_node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_2_node_modules_vue_loader_lib_index_js_vue_loader_options_modal_vue_vue_type_style_index_0_id_02cdd7ed_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/style-loader/dist/cjs.js!../../../../node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./modal.vue?vue&type=style&index=0&id=02cdd7ed&scoped=true&lang=css& */ "./node_modules/style-loader/dist/cjs.js!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/utilities/modal.vue?vue&type=style&index=0&id=02cdd7ed&scoped=true&lang=css&");
 
@@ -1576,6 +1566,7 @@ __webpack_require__.r(__webpack_exports__);
   \*******************************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_create_vue_vue_type_template_id_314e8729___WEBPACK_IMPORTED_MODULE_0__.render),
@@ -1592,6 +1583,7 @@ __webpack_require__.r(__webpack_exports__);
   \************************************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_modal_vue_vue_type_template_id_02cdd7ed_scoped_true___WEBPACK_IMPORTED_MODULE_0__.render),
@@ -1608,6 +1600,7 @@ __webpack_require__.r(__webpack_exports__);
   \**********************************************************************************************************************************************************************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "render": () => (/* binding */ render),
@@ -1617,7 +1610,6 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-<<<<<<< HEAD
   return _c(
     "modal",
     {
@@ -1634,192 +1626,165 @@ var render = function () {
               _c("h5", { staticClass: "card-title" }, [
                 _vm._v("CREAR CATEGORIA"),
               ]),
-=======
-  return _c("modal", { staticClass: "container" }, [
-    _c("div", { staticClass: "row " }, [
-      _c("div", { staticClass: "col-12" }, [
-        _c("div", { staticClass: "card" }, [
-          _c("div", { staticClass: "card-body" }, [
-            _c("h5", { staticClass: "card-title" }, [
-              _vm._v("CREAR CATEGORIA"),
->>>>>>> f5f34cfa8c8540444f9a699bd4a12e3c2ab179d4
             ]),
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "card-body" }, [
-            _c(
-              "form",
-              {
-                attrs: { enctype: "multipart/form-data" },
-                on: {
-                  submit: function ($event) {
-                    $event.preventDefault()
-                    return _vm.addCategory.apply(null, arguments)
+            _vm._v(" "),
+            _c("div", { staticClass: "card-body" }, [
+              _c(
+                "form",
+                {
+                  attrs: { enctype: "multipart/form-data" },
+                  on: {
+                    submit: function ($event) {
+                      $event.preventDefault()
+                      return _vm.addCategory.apply(null, arguments)
+                    },
                   },
                 },
-              },
-              [
-                _c("div", { staticClass: "row" }, [
-                  _c(
-                    "div",
-                    {
-                      staticClass: "col-12 d-flex justify-content-center pb-2",
-                    },
-                    [
-                      _c("img", {
-                        directives: [
-                          {
-                            name: "show",
-                            rawName: "v-show",
-                            value: _vm.imagen !== "",
-                            expression: "imagen!==''",
-                          },
-                        ],
-                        staticStyle: { width: "200px" },
-                        attrs: { src: _vm.imagen, alt: _vm.imagen },
-                      }),
-                      _vm._v(" "),
-                      _c("img", {
-                        staticStyle: { width: "200px" },
-                        attrs: {
-                          src: "../../../../storage/images/navidad/59VtVkckh8AeoZP4FS5orMmV6Yp5J1LxNKRg3J8Y.jpg",
-                          alt: "ola",
-                        },
-                      }),
-                    ]
-                  ),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "col-12 pt-1" }, [
-                    _c("div", { staticClass: "input-group mb-3" }, [
-                      _c(
-                        "label",
-                        {
-                          staticClass: "input-group-text",
-                          attrs: { for: "inputGroupFile01" },
-                        },
-                        [_vm._v("Image:")]
-                      ),
-                      _vm._v(" "),
-                      _c("input", {
-                        staticClass: "form-control",
-                        attrs: { type: "file", id: "image_category" },
-                        on: { change: _vm.getImage },
-                      }),
-                    ]),
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "col-12" }, [
-                    _c("div", { staticClass: "input-group mb-3" }, [
-                      _c(
-                        "span",
-                        {
-                          staticClass: "input-group-text",
-                          attrs: { id: "basic-addon1" },
-                        },
-                        [
-                          _c("i", { staticClass: "fab fa-adn" }),
-                          _vm._v(" Name:"),
-                        ]
-                      ),
-                      _vm._v(" "),
-                      _c("input", {
-                        directives: [
-                          {
-                            name: "model",
-                            rawName: "v-model",
-                            value: _vm.newCategory.name,
-                            expression: "newCategory.name",
-                          },
-                        ],
-                        staticClass: "form-control",
-                        attrs: {
-                          type: "text",
-                          placeholder: "Name Category",
-                          "aria-label": "name-category",
-                          "aria-describedby": "basic-addon1",
-                        },
-                        domProps: { value: _vm.newCategory.name },
-                        on: {
-                          input: function ($event) {
-                            if ($event.target.composing) {
-                              return
-                            }
-                            _vm.$set(
-                              _vm.newCategory,
-                              "name",
-                              $event.target.value
-                            )
-                          },
-                        },
-                      }),
-                    ]),
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "col-12" }, [
-                    _c("div", { staticClass: "input-group mb-3" }, [
-                      _c(
-                        "span",
-                        {
-                          staticClass: "input-group-text",
-                          attrs: { id: "basic-addon1" },
-                        },
-                        [
-                          _c("i", { staticClass: "fas fa-align-left" }),
-                          _vm._v(" Description:"),
-                        ]
-                      ),
-                      _vm._v(" "),
-                      _c("input", {
-                        directives: [
-                          {
-                            name: "model",
-                            rawName: "v-model",
-                            value: _vm.newCategory.description,
-                            expression: "newCategory.description",
-                          },
-                        ],
-                        staticClass: "form-control",
-                        attrs: {
-                          type: "text",
-                          placeholder: "Description",
-                          "aria-label": "description-category",
-                          "aria-describedby": "basic-addon1",
-                        },
-                        domProps: { value: _vm.newCategory.description },
-                        on: {
-                          input: function ($event) {
-                            if ($event.target.composing) {
-                              return
-                            }
-                            _vm.$set(
-                              _vm.newCategory,
-                              "description",
-                              $event.target.value
-                            )
-                          },
-                        },
-                      }),
-                    ]),
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "col-12" }, [
+                [
+                  _c("div", { staticClass: "row" }, [
                     _c(
-                      "button",
+                      "div",
                       {
-                        staticClass: "btn btn-success",
-                        attrs: { type: "submit" },
+                        staticClass:
+                          "col-12 d-flex justify-content-center pb-2",
                       },
-                      [_vm._v("SAVE")]
+                      [
+                        _c("img", {
+                          directives: [
+                            {
+                              name: "show",
+                              rawName: "v-show",
+                              value: _vm.imagen !== "",
+                              expression: "imagen!==''",
+                            },
+                          ],
+                          staticStyle: { width: "200px" },
+                          attrs: { src: _vm.imagen, alt: _vm.imagen },
+                        }),
+                      ]
                     ),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "col-12 pt-1" }, [
+                      _c("div", { staticClass: "input-group mb-3" }, [
+                        _c(
+                          "label",
+                          {
+                            staticClass: "input-group-text",
+                            attrs: { for: "inputGroupFile01" },
+                          },
+                          [_vm._v("Image:")]
+                        ),
+                        _vm._v(" "),
+                        _c("input", {
+                          staticClass: "form-control",
+                          attrs: { type: "file", id: "image_category" },
+                          on: { change: _vm.getImage },
+                        }),
+                      ]),
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "col-12" }, [
+                      _c("div", { staticClass: "input-group mb-3" }, [
+                        _c(
+                          "span",
+                          {
+                            staticClass: "input-group-text",
+                            attrs: { id: "basic-addon1" },
+                          },
+                          [
+                            _c("i", { staticClass: "fab fa-adn" }),
+                            _vm._v(" Name:"),
+                          ]
+                        ),
+                        _vm._v(" "),
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.newCategory.name,
+                              expression: "newCategory.name",
+                            },
+                          ],
+                          staticClass: "form-control",
+                          attrs: {
+                            type: "text",
+                            placeholder: "Name Category",
+                            "aria-label": "name-category",
+                            "aria-describedby": "basic-addon1",
+                          },
+                          domProps: { value: _vm.newCategory.name },
+                          on: {
+                            input: function ($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.$set(
+                                _vm.newCategory,
+                                "name",
+                                $event.target.value
+                              )
+                            },
+                          },
+                        }),
+                      ]),
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "col-12" }, [
+                      _c("div", { staticClass: "input-group mb-3" }, [
+                        _c(
+                          "span",
+                          {
+                            staticClass: "input-group-text",
+                            attrs: { id: "basic-addon1" },
+                          },
+                          [
+                            _c("i", { staticClass: "fas fa-align-left" }),
+                            _vm._v(" Description:"),
+                          ]
+                        ),
+                        _vm._v(" "),
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.newCategory.description,
+                              expression: "newCategory.description",
+                            },
+                          ],
+                          staticClass: "form-control",
+                          attrs: {
+                            type: "text",
+                            placeholder: "Description",
+                            "aria-label": "description-category",
+                            "aria-describedby": "basic-addon1",
+                          },
+                          domProps: { value: _vm.newCategory.description },
+                          on: {
+                            input: function ($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.$set(
+                                _vm.newCategory,
+                                "description",
+                                $event.target.value
+                              )
+                            },
+                          },
+                        }),
+                      ]),
+                    ]),
                   ]),
-                ]),
-              ]
-            ),
+                ]
+              ),
+            ]),
           ]),
         ]),
       ]),
-    ]),
-  ])
+    ]
+  )
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -1834,6 +1799,7 @@ render._withStripped = true
   \***************************************************************************************************************************************************************************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "render": () => (/* binding */ render),
@@ -1843,8 +1809,43 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "overlay", on: { click: _vm.hidepopup } }, [
-    _c("div", { staticClass: "popup" }, [_vm._t("default")], 2),
+  return _c("div", { staticClass: "overlay" }, [
+    _c("div", { staticClass: "popup" }, [
+      _c(
+        "div",
+        { staticClass: "card" },
+        [
+          _c("div", { staticClass: "d-flex flex-row-reverse py-1 pe-1" }, [
+            _c("button", {
+              staticClass: "btn-close",
+              attrs: { type: "button", "aria-label": "Close" },
+              on: { click: _vm.closepopup },
+            }),
+          ]),
+          _vm._v(" "),
+          _vm._t("default"),
+          _vm._v(" "),
+          _c("div", { staticClass: "pb-2 ps-2" }, [
+            _c(
+              "button",
+              {
+                class: _vm.propertiesConfirmButton.class,
+                attrs: { type: "submit" },
+                on: { click: _vm.actionConfirmButton },
+              },
+              [_vm._v(_vm._s(_vm.propertiesConfirmButton.text))]
+            ),
+            _vm._v(" "),
+            _c(
+              "button",
+              { staticClass: "btn btn-primary", on: { click: _vm.closepopup } },
+              [_vm._v("Cancel")]
+            ),
+          ]),
+        ],
+        2
+      ),
+    ]),
   ])
 }
 var staticRenderFns = []
