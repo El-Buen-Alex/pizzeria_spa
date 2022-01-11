@@ -5,6 +5,7 @@ const home=()=>import ('./components/home.vue');
 const app=()=>import ('./components/app.vue');
 const login=()=>import('./components/login.vue');
 
+const infopage=()=>import('./components/infopage/infopage.vue')
 
 //componentes para categoria
 const showCategory=()=>import('./components/category/show/show.vue')
@@ -56,37 +57,24 @@ export const routes = [
                         component:deleteCategory
                     },
                 ]
+            },
+            {
+                name:'showproducts',
+                path:'/products/showproducts',
+                component:showProducts
+            },
+            {
+                name:'infopage',
+                path:'/infopage',
+                component:infopage
             }
+           
         ]
     },
-    // {
-    //     name:'showCategories',
-    //     path:'/category/categories',
-    //     component:showCategory,
-    //     meta:{
-    //         authenticated:true
-    //     }
-    // },
-    // {
-    //     name:'createCategory',
-    //     path:'/category/createCategory',
-    //     component:createCategory
-    // },
     {
         name:'editCategory',
         path:'/category/editCategory',
         component:editCategory
-    },
-    {
-        name:'deleteCategory',
-        path:'/category/deleteCategory',
-        component:deleteCategory
-    },
-    {
-        name:'showproducts',
-        path:'/products/showproducts',
-        component:showProducts
-    },
-    
+    },  
 ]
 

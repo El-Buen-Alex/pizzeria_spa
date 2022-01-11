@@ -2294,6 +2294,10 @@ var app = function app() {
 
 var login = function login() {
   return __webpack_require__.e(/*! import() */ "resources_js_components_login_vue").then(__webpack_require__.bind(__webpack_require__, /*! ./components/login.vue */ "./resources/js/components/login.vue"));
+};
+
+var infopage = function infopage() {
+  return __webpack_require__.e(/*! import() */ "resources_js_components_infopage_infopage_vue").then(__webpack_require__.bind(__webpack_require__, /*! ./components/infopage/infopage.vue */ "./resources/js/components/infopage/infopage.vue"));
 }; //componentes para categoria
 
 
@@ -2353,32 +2357,19 @@ var routes = [{
       path: '/category/deleteCategory',
       component: deleteCategory
     }]
+  }, {
+    name: 'showproducts',
+    path: '/products/showproducts',
+    component: showProducts
+  }, {
+    name: 'infopage',
+    path: '/infopage',
+    component: infopage
   }]
-}, // {
-//     name:'showCategories',
-//     path:'/category/categories',
-//     component:showCategory,
-//     meta:{
-//         authenticated:true
-//     }
-// },
-// {
-//     name:'createCategory',
-//     path:'/category/createCategory',
-//     component:createCategory
-// },
-{
+}, {
   name: 'editCategory',
   path: '/category/editCategory',
   component: editCategory
-}, {
-  name: 'deleteCategory',
-  path: '/category/deleteCategory',
-  component: deleteCategory
-}, {
-  name: 'showproducts',
-  path: '/products/showproducts',
-  component: showProducts
 }];
 
 /***/ }),
@@ -19979,83 +19970,80 @@ var render = function () {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("main", { staticClass: "h-100" }, [
-    _c("div", { staticClass: "row h-100" }, [
-      _c("div", { staticClass: "col-12 col-md-2" }, [
-        _c("div", { staticClass: " bg-dark text-white h-100 ps-3" }, [
-          _c("h3", [_vm._v("PIZZERIA MELLIZOS!")]),
-          _vm._v(" "),
-          _c(
-            "ul",
-            {
-              staticClass:
-                "border-top border-warning nav nav-pills flex-column",
-            },
-            [
-              _c(
-                "li",
-                { staticClass: "nav-item  h-25 w-25" },
-                [
-                  _c(
-                    "router-link",
-                    {
-                      attrs: {
-                        to: "/",
-                        "aria-current": "page",
-                        "exact-active-class": "active",
+    _c("div", { staticClass: "container-fluid" }, [
+      _c("div", { staticClass: "row" }, [
+        _c("div", { staticClass: "col-12 col-md-2" }, [
+          _c("div", { staticClass: " bg-dark text-white h-100 ps-3" }, [
+            _c("h3", [_vm._v("PIZZERIA MELLIZOS!")]),
+            _vm._v(" "),
+            _c(
+              "ul",
+              {
+                staticClass:
+                  "border-top border-warning nav nav-pills flex-column",
+              },
+              [
+                _c(
+                  "li",
+                  { staticClass: "nav-item  h-25 w-25" },
+                  [
+                    _c(
+                      "router-link",
+                      {
+                        attrs: {
+                          to: "/infopage",
+                          "aria-current": "page",
+                          "exact-active-class": "active",
+                        },
                       },
-                    },
-                    [_vm._v("INICIO")]
-                  ),
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c(
-                "li",
-                { staticClass: "nav-item h-25" },
-                [
-                  _c(
-                    "router-link",
-                    {
-                      attrs: {
-                        to: "/category/categories",
-                        "exact-active-class": "active",
+                      [_vm._v("INICIO")]
+                    ),
+                  ],
+                  1
+                ),
+                _vm._v(" "),
+                _c(
+                  "li",
+                  { staticClass: "nav-item h-25" },
+                  [
+                    _c(
+                      "router-link",
+                      {
+                        attrs: {
+                          to: "/category/categories",
+                          "exact-active-class": "active",
+                        },
                       },
-                    },
-                    [_vm._v("CATEGORIAS")]
-                  ),
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c(
-                "li",
-                { staticClass: "nav-item h-25" },
-                [
-                  _c(
-                    "router-link",
-                    {
-                      attrs: {
-                        to: "/products/showproducts",
-                        "exact-active-class": "active",
+                      [_vm._v("CATEGORIAS")]
+                    ),
+                  ],
+                  1
+                ),
+                _vm._v(" "),
+                _c(
+                  "li",
+                  { staticClass: "nav-item h-25" },
+                  [
+                    _c(
+                      "router-link",
+                      {
+                        attrs: {
+                          to: "/products/showproducts",
+                          "exact-active-class": "active",
+                        },
                       },
-                    },
-                    [_vm._v("PRODUCTOS")]
-                  ),
-                ],
-                1
-              ),
-            ]
-          ),
+                      [_vm._v("PRODUCTOS")]
+                    ),
+                  ],
+                  1
+                ),
+              ]
+            ),
+          ]),
         ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "col-12 col-md-9" }, [_c("router-view")], 1),
       ]),
-      _vm._v(" "),
-      _c(
-        "div",
-        { staticClass: "col-12 col-md-10 border border-1" },
-        [_c("router-view")],
-        1
-      ),
     ]),
   ])
 }
@@ -35623,7 +35611,7 @@ module.exports = JSON.parse('{"_from":"axios@^0.21","_id":"axios@0.21.4","_inBun
 /******/ 		// This function allow to reference async chunks
 /******/ 		__webpack_require__.u = (chunkId) => {
 /******/ 			// return url for filenames not based on template
-/******/ 			if ({"resources_js_components_login_vue":1,"resources_js_components_category_show_show_vue":1,"resources_js_components_category_create_create_vue":1,"resources_js_components_category_edit_edit_vue":1,"resources_js_components_category_delete_delete_vue":1,"resources_js_components_category_show_plantilla_categorytemplate_vue":1,"resources_js_components_product_show_showproducts_vue":1}[chunkId]) return "js/" + chunkId + ".js";
+/******/ 			if ({"resources_js_components_login_vue":1,"resources_js_components_infopage_infopage_vue":1,"resources_js_components_category_show_show_vue":1,"resources_js_components_category_create_create_vue":1,"resources_js_components_category_edit_edit_vue":1,"resources_js_components_category_delete_delete_vue":1,"resources_js_components_category_show_plantilla_categorytemplate_vue":1,"resources_js_components_product_show_showproducts_vue":1}[chunkId]) return "js/" + chunkId + ".js";
 /******/ 			// return url for filenames based on template
 /******/ 			return undefined;
 /******/ 		};

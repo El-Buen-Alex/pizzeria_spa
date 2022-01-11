@@ -8,7 +8,7 @@ import { template } from "lodash";
         <div>
             <button @click="sendToCreateCategory" class='btn btn-success'><i class="far fa-plus-square pe-1"></i>NUEVA CATEGORIA</button>
         </div>
-        <div  class="row w-100 m-1" >
+        <div  class="row w-100 m-1  d-flex justify-content-center" >
            <categorytemplate  v-for="categoryt in categories" :key="categoryt.id" :category_object=categoryt  v-on:sendCategory="sendToDelete(categoryt)" v-on:sendToUpdate="sendToUpdate(categoryt)"></categorytemplate>
         </div>
         <!-- <button type="button" class="col-12 btn btn-danger my-1 px-1  w-75" >MOSTRAR</button> -->
