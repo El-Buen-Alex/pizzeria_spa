@@ -2297,7 +2297,7 @@ var login = function login() {
 };
 
 var infopage = function infopage() {
-  return __webpack_require__.e(/*! import() */ "resources_js_components_infopage_infopage_vue").then(__webpack_require__.bind(__webpack_require__, /*! ./components/infopage/infopage.vue */ "./resources/js/components/infopage/infopage.vue"));
+  return Promise.resolve().then(function webpackMissingModule() { var e = new Error("Cannot find module './components/infopage/infopage.vue'"); e.code = 'MODULE_NOT_FOUND'; throw e; });
 }; //componentes para categoria
 
 
@@ -35611,7 +35611,7 @@ module.exports = JSON.parse('{"_from":"axios@^0.21","_id":"axios@0.21.4","_inBun
 /******/ 		// This function allow to reference async chunks
 /******/ 		__webpack_require__.u = (chunkId) => {
 /******/ 			// return url for filenames not based on template
-/******/ 			if ({"resources_js_components_login_vue":1,"resources_js_components_infopage_infopage_vue":1,"resources_js_components_category_show_show_vue":1,"resources_js_components_category_create_create_vue":1,"resources_js_components_category_edit_edit_vue":1,"resources_js_components_category_delete_delete_vue":1,"resources_js_components_category_show_plantilla_categorytemplate_vue":1,"resources_js_components_product_show_showproducts_vue":1}[chunkId]) return "js/" + chunkId + ".js";
+/******/ 			if ({"resources_js_components_login_vue":1,"resources_js_components_category_show_show_vue":1,"resources_js_components_category_create_create_vue":1,"resources_js_components_category_edit_edit_vue":1,"resources_js_components_category_delete_delete_vue":1,"resources_js_components_category_show_plantilla_categorytemplate_vue":1,"resources_js_components_product_show_showproducts_vue":1}[chunkId]) return "js/" + chunkId + ".js";
 /******/ 			// return url for filenames based on template
 /******/ 			return undefined;
 /******/ 		};
