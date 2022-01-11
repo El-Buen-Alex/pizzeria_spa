@@ -84,6 +84,7 @@ export default {
             formData.append('description', this.newCategory.description)
             formData.append('image', this.newCategory.image)
             formData.append('state', this.newCategory.state)
+            formData.append('method', 'post')
             axios.post('/api/category', formData).then(response=>{
                 console.log(response.data)
                 this.$emit('updateCategories')
@@ -95,6 +96,7 @@ export default {
         setPropDefault(){
             if(this.objectA){
                  this.newCategory=this.objectA;
+                
                  console.log(this.newCategory)
                  this.previewImage=this.objectA.url_img;
                  this.confirmButton={
@@ -113,15 +115,15 @@ export default {
         },
         async updateCategory(){
             console.log("olap")
-             let  formData = new FormData();
-             formData.append('id', this.newCategory.id)
+            let formData = new FormData();
+            formData.append('id', this.newCategory.id)
             formData.append('name', this.newCategory.name)
             formData.append('description', this.newCategory.description)
             formData.append('image', this.newCategory.image)
             formData.append('state', this.newCategory.state)
+            formData.append('method', 'put')
             
-           
-             await this.axios.put(`/api/category/${this.newCategory.id}`, formData).then(response=>{
+             await this.axios.post(`/api/category`, formData).then(response=>{
                 console.log(response.data)
                  this.$emit('updateCategories')
                  this.$router.push({name:'showCategories'})

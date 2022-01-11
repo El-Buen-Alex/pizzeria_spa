@@ -121,6 +121,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       formData.append('description', this.newCategory.description);
       formData.append('image', this.newCategory.image);
       formData.append('state', this.newCategory.state);
+      formData.append('method', 'post');
       axios.post('/api/category', formData).then(function (response) {
         console.log(response.data);
 
@@ -167,8 +168,9 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 formData.append('description', _this3.newCategory.description);
                 formData.append('image', _this3.newCategory.image);
                 formData.append('state', _this3.newCategory.state);
-                _context.next = 9;
-                return _this3.axios.put("/api/category/".concat(_this3.newCategory.id), formData).then(function (response) {
+                formData.append('method', 'put');
+                _context.next = 10;
+                return _this3.axios.post("/api/category", formData).then(function (response) {
                   console.log(response.data);
 
                   _this3.$emit('updateCategories');
@@ -180,7 +182,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                   console.log(e);
                 });
 
-              case 9:
+              case 10:
               case "end":
                 return _context.stop();
             }
@@ -279,7 +281,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.overlay[data-v-02cdd7ed]{\r\n    \r\n    position:fixed;\r\n    top:0;\r\n    left:0;\r\n    width:100%;\r\n    height:100%;\r\n    background-color:rgba(0,0,0,0.1);\r\n    display:flex;\r\n    justify-content:center;\r\n    align-items:center;\n}\n.popup[data-v-02cdd7ed]{\r\n    \r\n    position: absolute;\r\n    width:80%;\r\n    max-width: 512px;\r\n    background-color:white;\r\n    padding:1rem;\r\n    border-radius: 0.5rem;\r\n    box-shadow:2px 5px 10px rgba(0,0,0,0.1);\n}\r\n\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.overlay[data-v-02cdd7ed]{\r\n    \r\n    position:fixed;\r\n    top:0;\r\n    left:0;\r\n    width:100%;\r\n    height:100%;\r\n    background-color:rgba(0,0,0,0.295);\r\n    display:flex;\r\n    justify-content:center;\r\n    align-items:center;\n}\n.popup[data-v-02cdd7ed]{\r\n    \r\n    position: absolute;\r\n    width:80%;\r\n    max-width: 512px;\r\n    background-color:white;\r\n    padding:1rem;\r\n    border-radius: 0.5rem;\r\n    box-shadow:2px 5px 10px rgba(0,0,0,0.1);\n}\r\n\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 

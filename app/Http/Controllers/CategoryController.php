@@ -40,24 +40,31 @@ class CategoryController extends Controller
     public function store(Request $request)
     {
         //
-         return DB::transaction(function () use ($request) {
 
-            if($request->file('image')!=null){
-                $image = $request->image;
-                $url_image= $image->store('','images');
-                $url_image='/images/'.$url_image;
-                 $category = Category::create([
-                     'name'=>$request->name,
-                     'url_img'=>$url_image,
-                     'state'=>$request->state,
-        
-                 ]);
-                
-                 return response()->json([
-                     'category'=>$category
-                ]); 
-            }
-         }, 5);
+        if($request->method==="post"){
+            return DB::transaction(function () use ($request) {
+
+                if($request->file('image')!=null){
+                    $image = $request->image;
+                    $url_image= $image->store('','images');
+                    $url_image='/images/'.$url_image;
+                     $category = Category::create([
+                         'name'=>$request->name,
+                         'url_img'=>$url_image,
+                         'state'=>$request->state,
+            
+                     ]);
+                    
+                     return response()->json([
+                         'category'=>$category
+                    ]); 
+                }
+             }, 5);
+        }else if ($request->method==="put"){
+            $category = Category::query()->find($request->id);
+            $this->update($request,  $category);
+        }
+         
     }
 
     /**
@@ -92,16 +99,22 @@ class CategoryController extends Controller
      */
     public function update(Request $request, Category $category)
     {
-        //
-        //$category->fill($request->post())->save();
-        
-        dd($request);
-        $category->name=$request->name;
-
-        $category->save();
-        return response()->json([
-            'category'=>$category
-        ]);
+       
+        return DB::transaction(function () use ($request, $category) {
+            if($request->file('image')!=null){
+                $image = $request->image;
+                $url_image= $image->store('','images');
+                $url_image='/images/'.$url_image;
+                $category->url_img=$url_image;
+            }
+            $category->name=$request->name;
+            $category->save();
+            return response()->json([
+                'category'=>$category,
+                'message'=>"category saved successfully!"
+           ]); 
+         }, 5);
+      
     }
 
     /**
