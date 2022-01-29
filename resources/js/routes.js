@@ -1,11 +1,10 @@
 import axios from 'axios';
 import { before } from 'lodash';
 
-const home=()=>import ('./components/home.vue');
 const app=()=>import ('./components/app.vue');
 const login=()=>import('./components/login.vue');
 
-const infopage=()=>import('./components/infopage/infopage.vue')
+const infopage=()=>import('./components/mainpage/infopage.vue')
 
 //componentes para categoria
 const showCategory=()=>import('./components/category/show/show.vue')
@@ -20,24 +19,11 @@ const showProducts=()=>import('./components/product/show/showproducts.vue')
 
 export const routes = [
     {
-        path: '*',
-        redirect:'/login'
-    },
-    {
         name:'login',
         path:'/login',
         component:login
     },
-    {
-        name:'home',
-        path:'/',
-        component:home
-    },
-    {
-        name:'app',
-        path:'/dashboard',
-        component: app,
-        children:[
+   
             {
                 name:'showCategories',
                 path:'/category/categories',
@@ -67,10 +53,7 @@ export const routes = [
                 name:'infopage',
                 path:'/infopage',
                 component:infopage
-            }
-           
-        ]
-    },
+            },
     {
         name:'editCategory',
         path:'/category/editCategory',

@@ -1,5 +1,5 @@
 <template>
-    <div class="container">
+    <div class="container h-100">
         <h1 class="d-flex justify-content-center">info!</h1>
     </div>
 

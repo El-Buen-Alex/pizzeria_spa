@@ -4,7 +4,7 @@ window.Vue=vue;
 
 
 import App from './components/app.vue'
-import Home from './components/home.vue';
+
 
 import VueAxios from 'vue-axios';
 import axios from 'axios';
@@ -24,7 +24,7 @@ const router = new VueRouter({
         if(requiredAuthentificated && localStorage.getItem('session')===null){
             next({name :'login'})
         }else if(!requiredAuthentificated && localStorage.getItem('session')===true){
-            next({name :'home'})
+            next({name :'infopage'})
         }else{
             next()
         }
@@ -36,5 +36,5 @@ const router = new VueRouter({
 const app = new Vue({
     el:'#app',
     router:router,
-    render: h=>h(Home)
+    render: h=>h(App)
 })

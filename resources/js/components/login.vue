@@ -51,7 +51,7 @@ export default {
             axios.post('/api/login', this.user).then(()=>{
                 this.$emit('islogin');
                 localStorage.setItem('session',true);
-                this.$router.push({name:'app'})
+                this.$router.push({name:'infopage'})
             }).catch(error=>{
                 this.errors=error.response.data.errors;
             })

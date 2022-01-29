@@ -8,11 +8,10 @@
                 </div>
                 <slot /> 
                 <div class="pb-2 ps-2">
-                    <button type="submit" :class="propertiesConfirmButton.class" @click="actionConfirmButton">{{propertiesConfirmButton.text}}</button>
+                    <button type="submit" :class="propertiesConfirmButton.class" @click="actionConfirmButton" :disabled="!canPressButton">{{propertiesConfirmButton.text}}</button>
                     <button class="btn btn-primary" @click="closepopup">Cancel</button>    
                 </div> 
             </div>
-       
         </div>
 </div>
   
@@ -25,6 +24,9 @@ export default {
             show:false,
         }
     },
+    mounted() {
+        this.print()
+    },
     props:{
         actionConfirmButton:{
             type:Function,
@@ -32,6 +34,11 @@ export default {
         },
         propertiesConfirmButton:{
             type:Object,
+        },
+        canPressButton:{
+            type:Boolean,
+            required:true,
+
         }
     },
     methods:{ 
@@ -40,6 +47,9 @@ export default {
         modal.style.display="none"
         this.$router.go(-1)
         },
+        print(){
+            console.log(this.canPressButton)
+        }
         
     },
     
