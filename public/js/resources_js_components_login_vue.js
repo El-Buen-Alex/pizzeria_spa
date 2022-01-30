@@ -62,10 +62,11 @@ __webpack_require__.r(__webpack_exports__);
     signIn: function signIn() {
       var _this = this;
 
-      axios.post('/api/login', this.user).then(function () {
+      axios.post('/api/login', this.user).then(function (response) {
         _this.$emit('islogin');
 
         localStorage.setItem('session', true);
+        localStorage.setItem('userLogged', JSON.stringify(response.data));
 
         _this.$router.push({
           name: 'infopage'

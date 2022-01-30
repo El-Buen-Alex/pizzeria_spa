@@ -13,8 +13,18 @@ class ProductFactory extends Factory
      */
     public function definition()
     {
+        // protected $id;
+        // protected $name;
+        // protected $price;
+        // protected $urlImage;
+        // protected $state;
+        // protected $id_prcategory;
         return [
-            //
+            'name'=>$this->faker->name,
+            'price'=>$this->faker->randomNumber(2, true),
+            'url_img'=>$this->faker->randomElement(['/images/pizzas.jpg','/images/sandwichs.jpg']),
+            'state'=>$this->faker->randomElement(['A','N']),
+            'id_prCategory'=>$this->faker->numberBetween($min=1, $max=10)
         ];
     }
 }

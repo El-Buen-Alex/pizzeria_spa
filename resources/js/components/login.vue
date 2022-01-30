@@ -48,9 +48,10 @@ export default {
     },methods:{
         signIn(){
           
-            axios.post('/api/login', this.user).then(()=>{
+            axios.post('/api/login', this.user).then((response)=>{
                 this.$emit('islogin');
                 localStorage.setItem('session',true);
+                localStorage.setItem('userLogged',JSON.stringify(response.data))
                 this.$router.push({name:'infopage'})
             }).catch(error=>{
                 this.errors=error.response.data.errors;

@@ -22,5 +22,6 @@ Route::middleware('auth:sanctum')->get('/authenticated', function () {
     return true;
 });
 Route::resource('category', App\Http\Controllers\CategoryController::class );
+Route::resource('product', App\Http\Controllers\ProductController::class);
 Route::post('login',[App\Http\Controllers\LoginController::class,'login']);
 Route::post('logout',[App\Http\Controllers\LoginController::class,'logout']);
