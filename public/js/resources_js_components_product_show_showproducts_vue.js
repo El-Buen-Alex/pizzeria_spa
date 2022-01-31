@@ -192,6 +192,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
     productObject: {
@@ -252,6 +255,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
@@ -263,27 +268,35 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
   },
   created: function created() {},
   methods: {
-    getListOfProductsByPagination: function getListOfProductsByPagination(paginate) {
-      var _this = this;
+    getListOfProductsByPagination: function getListOfProductsByPagination() {
+      var _arguments = arguments,
+          _this = this;
 
       return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee() {
+        var paginate;
         return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
           while (1) {
             switch (_context.prev = _context.next) {
               case 0:
-                _context.next = 2;
+                paginate = _arguments.length > 0 && _arguments[0] !== undefined ? _arguments[0] : 0;
+                _context.next = 3;
                 return _this.axios.get('/api/product?page=' + paginate).then(function (response) {
                   _this.productList = response.data.data;
                   _this.paginationObject = response.data;
                 });
 
-              case 2:
+              case 3:
               case "end":
                 return _context.stop();
             }
           }
         }, _callee);
       }))();
+    },
+    sendToCreateProduct: function sendToCreateProduct() {
+      this.$router.push({
+        name: 'createProduct'
+      });
     }
   },
   components: {
@@ -1590,8 +1603,14 @@ var render = function () {
       ]),
       _vm._v(" "),
       _c("div", { staticClass: "h-50 w-100" }, [
-        _c("p", { staticClass: "d-flex justify-content-center py-0 my-0 " }, [
-          _vm._v("$" + _vm._s(_vm.productObject.price)),
+        _c("div", { staticClass: "d-flex justify-content-center" }, [
+          _c("p", { staticClass: " py-0 my-0 " }, [
+            _vm._v("$" + _vm._s(_vm.productObject.price)),
+          ]),
+          _vm._v(" "),
+          _c("p", { staticClass: "py-0 my-0" }, [
+            _vm._v(" - " + _vm._s(_vm.productObject.name)),
+          ]),
         ]),
         _vm._v(" "),
         _vm._m(0),
@@ -1660,13 +1679,24 @@ var render = function () {
           "div",
           { staticClass: "row my-4" },
           [
-            _vm._m(1),
+            _c(
+              "button",
+              {
+                staticClass: "btn col-md-3 col-12 boxCategory  py-1",
+                on: { click: _vm.sendToCreateProduct },
+              },
+              [_vm._m(1)]
+            ),
             _vm._v(" "),
             _vm._l(_vm.productList, function (product) {
               return _c("productTemplate", {
                 key: product.id,
                 attrs: { productObject: product },
               })
+            }),
+            _vm._v(" "),
+            _c("router-view", {
+              on: { refreshCategories: _vm.getListOfProductsByPagination },
             }),
           ],
           2
@@ -1694,44 +1724,38 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c(
-      "button",
-      { staticClass: "btn col-md-3 col-12 boxCategory  py-1" },
-      [
-        _c("div", { staticClass: "card h-100" }, [
+    return _c("div", { staticClass: "card h-100" }, [
+      _c(
+        "div",
+        {
+          staticClass:
+            "d-flex justify-content-center  align-items-center h-75 w-100",
+        },
+        [
           _c(
             "div",
             {
               staticClass:
-                "d-flex justify-content-center  align-items-center h-75 w-100",
+                "addSize bg-success rounded-circle d-flex justify-content-center  align-items-center",
             },
             [
-              _c(
-                "div",
-                {
-                  staticClass:
-                    "addSize bg-success rounded-circle d-flex justify-content-center  align-items-center",
-                },
-                [
-                  _c("i", {
-                    staticClass: "fas fa-plus fa-7x",
-                    staticStyle: { color: "white" },
-                  }),
-                ]
-              ),
+              _c("i", {
+                staticClass: "fas fa-plus fa-7x",
+                staticStyle: { color: "white" },
+              }),
             ]
           ),
-          _vm._v(" "),
-          _c("div", { staticClass: "h-25" }, [
-            _c(
-              "p",
-              { staticClass: " d-flex  justify-content-center fw-bold w-100 " },
-              [_vm._v("ADD PRODUCTOS")]
-            ),
-          ]),
-        ]),
-      ]
-    )
+        ]
+      ),
+      _vm._v(" "),
+      _c("div", { staticClass: "h-25" }, [
+        _c(
+          "p",
+          { staticClass: " d-flex  justify-content-center fw-bold w-100 " },
+          [_vm._v("ADD PRODUCTOS")]
+        ),
+      ]),
+    ])
   },
 ]
 render._withStripped = true

@@ -6,7 +6,7 @@ import { template } from "lodash";
        </div>
        <div class="container">
            <div class="row my-4">
-                <button class="btn col-md-3 col-12 boxCategory  py-1" >
+                <button class="btn col-md-3 col-12 boxCategory  py-1" @click="sendToCreateProduct">
                         <div class="card h-100">
                              <div class="d-flex justify-content-center  align-items-center h-75 w-100">
                                 <div class="addSize bg-success rounded-circle d-flex justify-content-center  align-items-center">
@@ -20,6 +20,8 @@ import { template } from "lodash";
                         </div>
                     </button>
                <productTemplate v-for="product in productList" :key="product.id" :productObject="product"/>
+            <router-view v-on:refreshCategories="getListOfProductsByPagination"></router-view>
+
            </div>
             <pagination :pagination="paginationObject" v-on:getProductsByPaginate="getListOfProductsByPagination"/>
        </div>
@@ -40,11 +42,15 @@ export default {
        
     },
     methods:{
-        async getListOfProductsByPagination(paginate){
+        async getListOfProductsByPagination(paginate=0){
             await this.axios.get('/api/product?page='+paginate).then(response=>{
                  this.productList=response.data.data
                  this.paginationObject=response.data
             })
+           
+        },
+         sendToCreateProduct(){
+            this.$router.push({name:'createProduct'})
         }
     },
     components:{

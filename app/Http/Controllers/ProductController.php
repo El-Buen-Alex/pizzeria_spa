@@ -16,7 +16,7 @@ class ProductController extends Controller
     public function index()
     {
         //
-        $products= DB::table('products')->orderBy('updated_at','asc')->paginate(20);
+        $products= DB::table('products')->orderBy('updated_at','desc')->paginate(20);
         return response()->json($products);
     }
 
@@ -39,10 +39,27 @@ class ProductController extends Controller
     public function store(Request $request)
     {
         //
-        $product  = Product::create($request->post());
-        return response()->json([
-            'product'=>$product
-        ]);
+        if($request->method==='post'){
+            return DB::transaction(function () use ($request) {
+                if($request->file('image')!=null){
+                    $image = $request->image;
+                    $url_image= $image->store('','images_products');
+                    $url_image='/images/products/'.$url_image;
+                    $product=Product::create([
+                        'name'=>$request->name,
+                        'price'=>$request->price,
+                        'url_img'=>$url_image,
+                        'state'=>'A',
+                        'id_prCategory'=>$request->id_prcategory
+                    ]);
+                    return response()->json([
+                        'product'=>$product
+                    ]);
+                }
+            }, 5);
+        }
+        //$product  = Product::create($request->post());
+        
     }
 
     /**

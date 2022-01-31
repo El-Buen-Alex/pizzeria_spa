@@ -2361,6 +2361,10 @@ var showProducts = function showProducts() {
   return __webpack_require__.e(/*! import() */ "resources_js_components_product_show_showproducts_vue").then(__webpack_require__.bind(__webpack_require__, /*! ./components/product/show/showproducts.vue */ "./resources/js/components/product/show/showproducts.vue"));
 };
 
+var createProduct = function createProduct() {
+  return __webpack_require__.e(/*! import() */ "resources_js_components_product_create_createProduct_vue").then(__webpack_require__.bind(__webpack_require__, /*! ./components/product/create/createProduct.vue */ "./resources/js/components/product/create/createProduct.vue"));
+};
+
 var routes = [{
   name: 'login',
   path: '/login',
@@ -2384,7 +2388,12 @@ var routes = [{
 }, {
   name: 'showproducts',
   path: '/products/showproducts',
-  component: showProducts
+  component: showProducts,
+  children: [{
+    name: 'createProduct',
+    path: '/product/createProduct',
+    component: createProduct
+  }]
 }, {
   name: 'infopage',
   path: '/infopage',
@@ -36232,7 +36241,7 @@ module.exports = JSON.parse('{"_from":"axios@^0.21","_id":"axios@0.21.4","_inBun
 /******/ 		// This function allow to reference async chunks
 /******/ 		__webpack_require__.u = (chunkId) => {
 /******/ 			// return url for filenames not based on template
-/******/ 			if ({"resources_js_components_login_vue":1,"resources_js_components_mainpage_infopage_vue":1,"resources_js_components_category_show_show_vue":1,"resources_js_components_category_create_create_vue":1,"resources_js_components_category_edit_edit_vue":1,"resources_js_components_category_delete_delete_vue":1,"resources_js_components_category_show_plantilla_categorytemplate_vue":1,"resources_js_components_product_show_showproducts_vue":1}[chunkId]) return "js/" + chunkId + ".js";
+/******/ 			if ({"resources_js_components_login_vue":1,"resources_js_components_mainpage_infopage_vue":1,"resources_js_components_category_show_show_vue":1,"resources_js_components_category_create_create_vue":1,"resources_js_components_category_edit_edit_vue":1,"resources_js_components_category_delete_delete_vue":1,"resources_js_components_category_show_plantilla_categorytemplate_vue":1,"resources_js_components_product_show_showproducts_vue":1,"resources_js_components_product_create_createProduct_vue":1}[chunkId]) return "js/" + chunkId + ".js";
 /******/ 			// return url for filenames based on template
 /******/ 			return undefined;
 /******/ 		};
