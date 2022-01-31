@@ -197,7 +197,7 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "col-12 col-md-3 box my-1 " }, [
+  return _c("div", { staticClass: "col-12 col-md-3 box py-1 " }, [
     _c("div", { staticClass: "card h-100" }, [
       _c("div", { staticClass: "d-flex justify-content-center mt-2 h-50" }, [
         _c("img", {

@@ -6,7 +6,19 @@ import { template } from "lodash";
        </div>
        <div class="container">
            <div class="row my-4">
+                <button class="btn col-md-3 col-12 boxCategory  py-1" >
+                        <div class="card h-100">
+                             <div class="d-flex justify-content-center  align-items-center h-75 w-100">
+                                <div class="addSize bg-success rounded-circle d-flex justify-content-center  align-items-center">
+                                    <i class="fas fa-plus fa-7x" style="color:white"></i>
+                                </div>  
+                            </div>
+                            <div class="h-25">
+                                <p class=" d-flex  justify-content-center fw-bold w-100 ">ADD PRODUCTOS</p>
 
+                            </div>
+                        </div>
+                    </button>
                <productTemplate v-for="product in productList" :key="product.id" :productObject="product"/>
            </div>
             <pagination :pagination="paginationObject" v-on:getProductsByPaginate="getListOfProductsByPagination"/>
@@ -25,16 +37,9 @@ export default {
         }
     },
     created(){
-       // this.getListOfProducts()
+       
     },
     methods:{
-    //   async  getListOfProducts(){
-    //        await  this.axios.get('/api/product').then(response=>{
-    //             this.productList=response.data.data
-    //             this.paginationObject=response.data
-    //         })
-    //     },
-
         async getListOfProductsByPagination(paginate){
             await this.axios.get('/api/product?page='+paginate).then(response=>{
                  this.productList=response.data.data
@@ -48,3 +53,11 @@ export default {
     },
 }
 </script>
+
+<style scoped>
+
+.addSize{
+        width:150px;
+        height:150px;
+     }
+</style>

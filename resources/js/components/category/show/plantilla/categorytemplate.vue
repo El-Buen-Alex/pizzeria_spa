@@ -1,6 +1,6 @@
 import { template } from "lodash";
 <template>
-                <div class="col-12 col-md-3 box my-1 ">
+                <div class="col-12 col-md-3 box py-1 ">
                         <div class="card h-100">
                                  <div class="d-flex justify-content-center mt-2 h-50">
                                         <img :src="category_object.url_img" :alt="category_object.name" class="mh-100 mw-100"/>

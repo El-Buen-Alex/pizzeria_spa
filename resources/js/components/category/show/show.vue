@@ -10,12 +10,12 @@ import { template } from "lodash";
             <!-- <button @click="sendToCreateCategory" class='btn btn-success'><i class="far fa-plus-square pe-1"></i>NUEVA CATEGORIA</button> -->
         </div>
         <div class="container">
-              <div  class="row" >
-                    <button class="btn col-md-3 col-12  box  my-1 " @click="sendToCreateCategory">
+              <div  class="row my-4" >
+                    <button class="btn col-md-3 col-12  box  p-1 " @click="sendToCreateCategory">
                         <div class="card h-100">
                              <div class="d-flex justify-content-center  align-items-center h-75 w-100">
                                 <div class="addSize bg-success rounded-circle d-flex justify-content-center  align-items-center">
-                                    <i class="fas fa-plus fa-7x"></i>
+                                    <i class="fas fa-plus fa-7x" style="color:white"></i>
                                 </div>  
                             </div>
                             <p class=" d-flex  justify-content-center fw-bold w-100">ADD CATEGORIA</p>
