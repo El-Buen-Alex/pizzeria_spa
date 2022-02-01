@@ -21,6 +21,7 @@ const editProduct=()=>import('./components/product/edit/editProduct.vue')
 const deleteProduct=()=>import('./components/product/delete/deleteProduct.vue')
 
 export const routes = [
+    
     {
         name:'login',
         path:'/login',
@@ -51,6 +52,9 @@ export const routes = [
                 name:'showproducts',
                 path:'/products/showproducts',
                 component:showProducts,
+                meta:{
+                    authenticated:true
+                },
                 children:[
                     {
                         name:'createProduct',
@@ -71,13 +75,13 @@ export const routes = [
             },
             {
                 name:'infopage',
-                path:'/infopage',
-                component:infopage
+                path:'/',
+                component:infopage,
+                meta:{
+                    authenticated:true
+                },
+
             },
-    {
-        name:'editCategory',
-        path:'/category/editCategory',
-        component:editCategory
-    },  
+   
 ]
 

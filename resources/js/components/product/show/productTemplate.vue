@@ -1,5 +1,5 @@
 <template>
-    <div class="col-12 col-md-3 boxCategory  py-1 my-1">
+    <div class="col-12 col-lg-3 boxCategory  py-1 my-1 ">
         <div class="card h-100">
             <div class=" boxHeader">
                 <div class="divCategoryName d-flex justify-content-center bg-warning ">
@@ -12,7 +12,7 @@
             <div class="boxFooter w-100 mt-1">
                 <div class="d-flex justify-content-center">
                     <p class=" py-0 my-0 ">${{productObject.price}}</p>
-                    <p class="py-0 my-0"> - {{productObject.name}}</p>
+                    <p class="py-0 my-0 "> - {{productObject.name}}</p>
                 </div>
                  <div class="container my-0 py-0">
                       <div class="row flex justify-content-center ">

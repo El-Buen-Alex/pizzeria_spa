@@ -1619,7 +1619,7 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "col-12 col-md-3 boxCategory  py-1 my-1" }, [
+  return _c("div", { staticClass: "col-12 col-lg-3 boxCategory  py-1 my-1 " }, [
     _c("div", { staticClass: "card h-100" }, [
       _c("div", { staticClass: " boxHeader" }, [
         _c(
@@ -1653,7 +1653,7 @@ var render = function () {
             _vm._v("$" + _vm._s(_vm.productObject.price)),
           ]),
           _vm._v(" "),
-          _c("p", { staticClass: "py-0 my-0" }, [
+          _c("p", { staticClass: "py-0 my-0 " }, [
             _vm._v(" - " + _vm._s(_vm.productObject.name)),
           ]),
         ]),
@@ -1734,7 +1734,7 @@ var render = function () {
               _c(
                 "button",
                 {
-                  staticClass: "btn col-md-3 col-12 boxCategory  py-1 my-1",
+                  staticClass: "btn col-lg-3 col-12 boxCategory  py-1 my-1",
                   on: { click: _vm.sendToCreateProduct },
                 },
                 [_vm._m(1)]

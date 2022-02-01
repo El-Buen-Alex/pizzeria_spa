@@ -1481,36 +1481,33 @@ var render = function () {
         _c("div", { staticClass: "card-body" }, [
           _c("form", { attrs: { enctype: "multipart/form-data" } }, [
             _c("div", { staticClass: "row " }, [
-              _c(
-                "div",
-                {
-                  directives: [
-                    {
-                      name: "show",
-                      rawName: "v-show",
-                      value: _vm.image !== "",
-                      expression: "image!==''",
-                    },
-                  ],
-                  staticClass: "col-12 pb-2 d-flex justify-content-center",
-                },
-                [
-                  _c(
+              _vm.image !== ""
+                ? _c(
                     "div",
                     {
-                      staticClass: "d-flex justify-content-center",
-                      staticStyle: { width: "200px", height: "200px" },
+                      staticClass: "col-12 pb-2 d-flex justify-content-center",
                     },
                     [
-                      _c("img", {
-                        staticClass:
-                          "mh-100 mw-100 d-flex justify-content-center",
-                        attrs: { src: _vm.image, alt: "imagen del producto" },
-                      }),
+                      _c(
+                        "div",
+                        {
+                          staticClass: "d-flex justify-content-center",
+                          staticStyle: { width: "200px", height: "200px" },
+                        },
+                        [
+                          _c("img", {
+                            staticClass:
+                              "mh-100 mw-100 d-flex justify-content-center",
+                            attrs: {
+                              src: _vm.image,
+                              alt: "imagen del producto",
+                            },
+                          }),
+                        ]
+                      ),
                     ]
-                  ),
-                ]
-              ),
+                  )
+                : _vm._e(),
               _vm._v(" "),
               _c("div", { staticClass: "col-12 pt-1" }, [
                 _c("div", { staticClass: "input-group mb-3" }, [

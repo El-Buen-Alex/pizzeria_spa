@@ -197,7 +197,7 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "col-12 col-md-3 box py-1 " }, [
+  return _c("div", { staticClass: "col-12 col-lg-3 box py-1 " }, [
     _c("div", { staticClass: "card h-100" }, [
       _c("div", { staticClass: "d-flex justify-content-center mt-2 h-50" }, [
         _c("img", {
@@ -209,7 +209,7 @@ var render = function () {
         }),
       ]),
       _vm._v(" "),
-      _c("div", { staticClass: "h-50" }, [
+      _c("div", { staticClass: "h-50 overflow-auto" }, [
         _c("p", { staticClass: " d-flex justify-content-center " }, [
           _vm._v(_vm._s(_vm.category_object.name)),
         ]),

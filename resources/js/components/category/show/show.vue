@@ -11,7 +11,7 @@ import { template } from "lodash";
         </div>
         <div class="container">
               <div  class="row my-4" >
-                    <button class="btn col-md-3 col-12  box  p-1 " @click="sendToCreateCategory">
+                    <button class="btn col-lg-3 col-12  box  p-1 " @click="sendToCreateCategory">
                         <div class="card h-100">
                              <div class="d-flex justify-content-center  align-items-center h-75 w-100">
                                 <div class="addSize bg-success rounded-circle d-flex justify-content-center  align-items-center">

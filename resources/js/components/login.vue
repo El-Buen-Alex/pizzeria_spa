@@ -1,5 +1,5 @@
 <template>
-   <div class="d-flex justify-content-center align-items-center p-2  ">
+   <div class="d-flex justify-content-center align-items-center p-2  mt-5 pt-5 position">
         <div class="d-flex flex-column bd-highlight mb-3 card px-2 background-transparent w-25 login">
         <header>
             <h2 class="text-light">SIGN IN</h2>
@@ -47,7 +47,6 @@ export default {
         }
     },methods:{
         signIn(){
-          
             axios.post('/api/login', this.user).then((response)=>{
                 this.$emit('islogin');
                 localStorage.setItem('session',true);
@@ -69,4 +68,12 @@ export default {
  .login{
      min-width: 400px;
  }
+ @media (min-width:768px) {
+        .position{
+     position: absolute;
+     top: 25%;
+     left: 35%;
+ } 
+ }
+ 
 </style>

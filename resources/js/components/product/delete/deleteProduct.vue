@@ -12,7 +12,7 @@ export default {
         return{
             confirmButton:{
                 class : 'btn btn-danger',
-                text : 'Delete Category'
+                text : 'Delete Product'
             },
         canPressButton:true,
         }

@@ -10,7 +10,7 @@
                 <div class="card-body">
                     <form enctype="multipart/form-data" >
                             <div class="row ">
-                                <div class="col-12 pb-2 d-flex justify-content-center"  v-show="image!==''" >
+                                <div class="col-12 pb-2 d-flex justify-content-center"  v-if="image!==''" >
                                     <div class="d-flex justify-content-center"  style="width:200px; height:200px">
                                         <img :src="image" class="mh-100 mw-100 d-flex justify-content-center"  alt="imagen del producto" > 
                                     </div>

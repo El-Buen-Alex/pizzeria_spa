@@ -16,14 +16,14 @@ import { template } from "lodash";
                                     <div class="col-11 ">
                                             <h1 class="pt-4 text-light ">PIZZERIA MELLIZOS: BIENVENIDO!</h1>
                                     </div>
-                                <div class="col-1 ">
+                                <div class="col-1" v-show="isLoggedIn">
                                     <div class="pt-md-4 pt-1">
                                         <div class=" bg-light rounded-circle tamanioSVG d-flex align-items-center  justify-content-center" v-show="isLoggedIn">
                                                 <button class="btn" @click="showPerfilOptions">
                                                     <i class="fas fa-user fa-2x"></i>
                                                 </button>
                                             </div>
-                                    <router-link v-show="!isLoggedIn" to='/login' class='btn btn-success'><i class="far fa-plus-square pe-1"></i>LOGIN!</router-link>
+                                        <router-link v-show="!isLoggedIn" to='/login' class='btn btn-success'><i class="far fa-plus-square pe-1"></i>LOGIN!</router-link>
                                 
                                     </div>
                                 </div>
@@ -40,7 +40,7 @@ import { template } from "lodash";
                                                 </div>
                                                 <ul class="list-unstyled my-3  d-flex  flex-md-column justify-content-center ">
                                                     <li class="nav-item  w-100 bg-secondary py-1 my-1 d-flex justify-content-center">
-                                                        <router-link class="text-light fw-bold text-decoration-none py-md-2"  to="/infopage" aria-current="page" exact-active-class="active">INICIO</router-link>
+                                                        <router-link class="text-light fw-bold text-decoration-none py-md-2"  to="/" aria-current="page" exact-active-class="active">INICIO</router-link>
                                                     </li>
                                                     <li class="nav-item w-100 bg-secondary py-1 my-1 d-flex justify-content-center mx-1 mx-md-0">
                                                         <router-link  class="text-light fw-bold text-decoration-none py-md-2" to="/category/categories" exact-active-class="active">CATEGORIAS</router-link>
@@ -52,9 +52,11 @@ import { template } from "lodash";
                                         </div>
                             </div>                  
                         </div>
-                        <div class="col-12 col-md-10">
-                            <router-view  v-on:islogin="couldLogIn" >
-                            </router-view>  
+                        <div class="col-12 col-md-10 ">
+                            
+                                <router-view  v-on:islogin="couldLogIn" ></router-view>  
+                            
+                            
                         </div>
                     </div>
              
@@ -72,13 +74,14 @@ export default {
         return {
             session: localStorage.getItem('session'),
             isLoggedIn: false,
-            canSeePerfilOptions:false
-        }
+            canSeePerfilOptions:false,
+            
+            }
         },
     methods:{
         logout(){
-           console.log("holsa")
             this.isLoggedIn= false
+            this.showPerfilOptions()
 
         },
         couldLogIn(){
@@ -86,7 +89,6 @@ export default {
         },
         setIsLoggedIn(){
             this.isLoggedIn=localStorage.getItem('session');
-            console.log(this.isLoggedIn)
         },
         showPerfilOptions(){
             if(this.canSeePerfilOptions){
@@ -94,10 +96,13 @@ export default {
             }else{
                 this.canSeePerfilOptions=true;
             }  
+        },
+        consoleLog(){
+            console.log("eyeye")
         }
     },
     created(){
-             this.setIsLoggedIn()
+        this.setIsLoggedIn()
     },
     mounted(){
            

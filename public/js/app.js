@@ -2133,6 +2133,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
@@ -2144,15 +2146,14 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     logout: function logout() {
-      console.log("holsa");
       this.isLoggedIn = false;
+      this.showPerfilOptions();
     },
     couldLogIn: function couldLogIn() {
       this.isLoggedIn = true;
     },
     setIsLoggedIn: function setIsLoggedIn() {
       this.isLoggedIn = localStorage.getItem('session');
-      console.log(this.isLoggedIn);
     },
     showPerfilOptions: function showPerfilOptions() {
       if (this.canSeePerfilOptions) {
@@ -2160,6 +2161,9 @@ __webpack_require__.r(__webpack_exports__);
       } else {
         this.canSeePerfilOptions = true;
       }
+    },
+    consoleLog: function consoleLog() {
+      console.log("eyeye");
     }
   },
   created: function created() {
@@ -2397,6 +2401,9 @@ var routes = [{
   name: 'showproducts',
   path: '/products/showproducts',
   component: showProducts,
+  meta: {
+    authenticated: true
+  },
   children: [{
     name: 'createProduct',
     path: '/product/createProduct',
@@ -2412,12 +2419,11 @@ var routes = [{
   }]
 }, {
   name: 'infopage',
-  path: '/infopage',
-  component: infopage
-}, {
-  name: 'editCategory',
-  path: '/category/editCategory',
-  component: editCategory
+  path: '/',
+  component: infopage,
+  meta: {
+    authenticated: true
+  }
 }];
 
 /***/ }),
@@ -20538,60 +20544,74 @@ var render = function () {
             _c("div", { staticClass: "row w-100" }, [
               _vm._m(0),
               _vm._v(" "),
-              _c("div", { staticClass: "col-1 " }, [
-                _c(
-                  "div",
-                  { staticClass: "pt-md-4 pt-1" },
-                  [
-                    _c(
-                      "div",
-                      {
-                        directives: [
-                          {
-                            name: "show",
-                            rawName: "v-show",
-                            value: _vm.isLoggedIn,
-                            expression: "isLoggedIn",
-                          },
-                        ],
-                        staticClass:
-                          " bg-light rounded-circle tamanioSVG d-flex align-items-center  justify-content-center",
-                      },
-                      [
-                        _c(
-                          "button",
-                          {
-                            staticClass: "btn",
-                            on: { click: _vm.showPerfilOptions },
-                          },
-                          [_c("i", { staticClass: "fas fa-user fa-2x" })]
-                        ),
-                      ]
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "router-link",
-                      {
-                        directives: [
-                          {
-                            name: "show",
-                            rawName: "v-show",
-                            value: !_vm.isLoggedIn,
-                            expression: "!isLoggedIn",
-                          },
-                        ],
-                        staticClass: "btn btn-success",
-                        attrs: { to: "/login" },
-                      },
-                      [
-                        _c("i", { staticClass: "far fa-plus-square pe-1" }),
-                        _vm._v("LOGIN!"),
-                      ]
-                    ),
+              _c(
+                "div",
+                {
+                  directives: [
+                    {
+                      name: "show",
+                      rawName: "v-show",
+                      value: _vm.isLoggedIn,
+                      expression: "isLoggedIn",
+                    },
                   ],
-                  1
-                ),
-              ]),
+                  staticClass: "col-1",
+                },
+                [
+                  _c(
+                    "div",
+                    { staticClass: "pt-md-4 pt-1" },
+                    [
+                      _c(
+                        "div",
+                        {
+                          directives: [
+                            {
+                              name: "show",
+                              rawName: "v-show",
+                              value: _vm.isLoggedIn,
+                              expression: "isLoggedIn",
+                            },
+                          ],
+                          staticClass:
+                            " bg-light rounded-circle tamanioSVG d-flex align-items-center  justify-content-center",
+                        },
+                        [
+                          _c(
+                            "button",
+                            {
+                              staticClass: "btn",
+                              on: { click: _vm.showPerfilOptions },
+                            },
+                            [_c("i", { staticClass: "fas fa-user fa-2x" })]
+                          ),
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "router-link",
+                        {
+                          directives: [
+                            {
+                              name: "show",
+                              rawName: "v-show",
+                              value: !_vm.isLoggedIn,
+                              expression: "!isLoggedIn",
+                            },
+                          ],
+                          staticClass: "btn btn-success",
+                          attrs: { to: "/login" },
+                        },
+                        [
+                          _c("i", { staticClass: "far fa-plus-square pe-1" }),
+                          _vm._v("LOGIN!"),
+                        ]
+                      ),
+                    ],
+                    1
+                  ),
+                ]
+              ),
             ]),
           ]),
         ]),
@@ -20636,7 +20656,7 @@ var render = function () {
                             staticClass:
                               "text-light fw-bold text-decoration-none py-md-2",
                             attrs: {
-                              to: "/infopage",
+                              to: "/",
                               "aria-current": "page",
                               "exact-active-class": "active",
                             },
@@ -20701,7 +20721,7 @@ var render = function () {
         _vm._v(" "),
         _c(
           "div",
-          { staticClass: "col-12 col-md-10" },
+          { staticClass: "col-12 col-md-10 " },
           [_c("router-view", { on: { islogin: _vm.couldLogIn } })],
           1
         ),
