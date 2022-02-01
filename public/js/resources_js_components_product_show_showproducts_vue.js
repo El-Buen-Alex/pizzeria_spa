@@ -195,6 +195,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
     productObject: {
@@ -282,6 +286,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 _context.next = 3;
                 return _this.axios.get('/api/product?page=' + paginate).then(function (response) {
                   _this.productList = response.data.data;
+                  console.log(_this.productList);
                   _this.paginationObject = response.data;
                 });
 
@@ -348,7 +353,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.boxCategory{\n        height: 300px;\n}\n ", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.boxCategory{\n        height: 300px;\n}\n.divCategoryName{\n    height:15%;\n}\n.divImg{\n    height: 85%;\n}\n.boxHeader{\n    height: 55%;\n}\n.boxFooter{\n    height:35%;\n}\n ", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -1593,16 +1598,35 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "col-12 col-md-3 boxCategory  py-1 " }, [
+  return _c("div", { staticClass: "col-12 col-md-3 boxCategory  py-1 my-1" }, [
     _c("div", { staticClass: "card h-100" }, [
-      _c("div", { staticClass: "d-flex justify-content-center mt-2 h-50" }, [
-        _c("img", {
-          staticClass: "mh-100 mw-100",
-          attrs: { src: _vm.productObject.url_img },
-        }),
+      _c("div", { staticClass: " boxHeader" }, [
+        _c(
+          "div",
+          {
+            staticClass:
+              "divCategoryName d-flex justify-content-center bg-warning ",
+          },
+          [
+            _c("p", { staticClass: "fw-bold" }, [
+              _vm._v("Category: " + _vm._s(_vm.productObject.name_category)),
+            ]),
+          ]
+        ),
+        _vm._v(" "),
+        _c(
+          "div",
+          { staticClass: "divImg d-flex justify-content-center pt-1" },
+          [
+            _c("img", {
+              staticClass: "mh-100 mw-100",
+              attrs: { src: _vm.productObject.url_img },
+            }),
+          ]
+        ),
       ]),
       _vm._v(" "),
-      _c("div", { staticClass: "h-50 w-100" }, [
+      _c("div", { staticClass: "boxFooter w-100 mt-1" }, [
         _c("div", { staticClass: "d-flex justify-content-center" }, [
           _c("p", { staticClass: " py-0 my-0 " }, [
             _vm._v("$" + _vm._s(_vm.productObject.price)),
@@ -1682,7 +1706,7 @@ var render = function () {
             _c(
               "button",
               {
-                staticClass: "btn col-md-3 col-12 boxCategory  py-1",
+                staticClass: "btn col-md-3 col-12 boxCategory  py-1 my-1",
                 on: { click: _vm.sendToCreateProduct },
               },
               [_vm._m(1)]

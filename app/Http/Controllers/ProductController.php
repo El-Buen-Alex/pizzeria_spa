@@ -16,7 +16,11 @@ class ProductController extends Controller
     public function index()
     {
         //
-        $products= DB::table('products')->orderBy('updated_at','desc')->paginate(20);
+        $products=DB::table('products')
+        ->select('products.id','products.name','products.url_img', 'products.price', 'products.id_prCategory', 'categories.name as name_category')
+        ->join('categories', 'id_prCategory','=','categories.id')
+        ->orderBy('products.updated_at','desc')->paginate(19);
+       // $products= DB::table('products')->orderBy('updated_at','desc')->paginate(20);
         return response()->json($products);
     }
 

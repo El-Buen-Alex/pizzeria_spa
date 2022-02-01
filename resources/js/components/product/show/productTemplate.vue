@@ -1,11 +1,15 @@
 <template>
-    <div class="col-12 col-md-3 boxCategory  py-1 ">
+    <div class="col-12 col-md-3 boxCategory  py-1 my-1">
         <div class="card h-100">
-             <!-- <p> {{productObject.name}}</p> -->
-            <div class="d-flex justify-content-center mt-2 h-50">
-                <img :src="productObject.url_img" class="mh-100 mw-100" /> 
+            <div class=" boxHeader">
+                <div class="divCategoryName d-flex justify-content-center bg-warning ">
+                     <p class="fw-bold">Category: {{productObject.name_category}}</p>
+                </div>
+                <div class="divImg d-flex justify-content-center pt-1">
+                    <img :src="productObject.url_img" class="mh-100 mw-100" /> 
+                </div>
             </div >
-            <div class="h-50 w-100">
+            <div class="boxFooter w-100 mt-1">
                 <div class="d-flex justify-content-center">
                     <p class=" py-0 my-0 ">${{productObject.price}}</p>
                     <p class="py-0 my-0"> - {{productObject.name}}</p>
@@ -37,5 +41,17 @@
  <style>
  .boxCategory{
         height: 300px;
+}
+.divCategoryName{
+    height:15%;
+}
+.divImg{
+    height: 85%;
+}
+.boxHeader{
+    height: 55%;
+}
+.boxFooter{
+    height:35%;
 }
  </style>

@@ -6,7 +6,7 @@ import { template } from "lodash";
        </div>
        <div class="container">
            <div class="row my-4">
-                <button class="btn col-md-3 col-12 boxCategory  py-1" @click="sendToCreateProduct">
+                <button class="btn col-md-3 col-12 boxCategory  py-1 my-1" @click="sendToCreateProduct">
                         <div class="card h-100">
                              <div class="d-flex justify-content-center  align-items-center h-75 w-100">
                                 <div class="addSize bg-success rounded-circle d-flex justify-content-center  align-items-center">
@@ -45,6 +45,8 @@ export default {
         async getListOfProductsByPagination(paginate=0){
             await this.axios.get('/api/product?page='+paginate).then(response=>{
                  this.productList=response.data.data
+                console.log(this.productList)
+
                  this.paginationObject=response.data
             })
            
