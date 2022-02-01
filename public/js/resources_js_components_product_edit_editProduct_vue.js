@@ -22,8 +22,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _utilities_modal_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../utilities/modal.vue */ "./resources/js/components/utilities/modal.vue");
-/* harmony import */ var _form_formProduct_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../form/formProduct.vue */ "./resources/js/components/product/form/formProduct.vue");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _utilities_modal_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../utilities/modal.vue */ "./resources/js/components/utilities/modal.vue");
+/* harmony import */ var _form_formProduct_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../form/formProduct.vue */ "./resources/js/components/product/form/formProduct.vue");
+
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
 //
 //
 //
@@ -51,9 +59,42 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     editProduct: function editProduct() {
-      console.log("hola");
+      var _this = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee() {
+        var formData, newProduct;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                console.log(_this.formSettings.productObject);
+                formData = new FormData();
+                newProduct = _this.formSettings.productObject;
+                formData.append('id', newProduct.id);
+                formData.append('name', newProduct.name);
+                formData.append('price', newProduct.price);
+                formData.append('image', newProduct.image);
+                formData.append('id_prCategory', newProduct.categoryId);
+                formData.append('method', 'put');
+                _context.next = 11;
+                return _this.axios.post('/api/product', formData).then(function (response) {
+                  _this.$emit('refreshCategories');
+
+                  _this.$router.push({
+                    name: 'showproducts'
+                  });
+                });
+
+              case 11:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee);
+      }))();
     },
     setProductContext: function setProductContext() {
+      this.formSettings.productObject.id = this.productContext.id;
       this.formSettings.productObject.name = this.productContext.name;
       this.formSettings.productObject.price = this.productContext.price;
       this.formSettings.productObject.image = this.productContext.url_img;
@@ -71,8 +112,8 @@ __webpack_require__.r(__webpack_exports__);
     }
   },
   components: {
-    modal: _utilities_modal_vue__WEBPACK_IMPORTED_MODULE_0__["default"],
-    formProduct: _form_formProduct_vue__WEBPACK_IMPORTED_MODULE_1__["default"]
+    modal: _utilities_modal_vue__WEBPACK_IMPORTED_MODULE_1__["default"],
+    formProduct: _form_formProduct_vue__WEBPACK_IMPORTED_MODULE_2__["default"]
   }
 });
 
@@ -97,6 +138,8 @@ function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try
 
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
+//
+//
 //
 //
 //
@@ -1437,23 +1480,35 @@ var render = function () {
         _vm._v(" "),
         _c("div", { staticClass: "card-body" }, [
           _c("form", { attrs: { enctype: "multipart/form-data" } }, [
-            _c("div", { staticClass: "row" }, [
+            _c("div", { staticClass: "row " }, [
               _c(
                 "div",
-                { staticClass: "col-12 d-flex justify-content-center pb-2" },
+                {
+                  directives: [
+                    {
+                      name: "show",
+                      rawName: "v-show",
+                      value: _vm.image !== "",
+                      expression: "image!==''",
+                    },
+                  ],
+                  staticClass: "col-12 pb-2 d-flex justify-content-center",
+                },
                 [
-                  _c("img", {
-                    directives: [
-                      {
-                        name: "show",
-                        rawName: "v-show",
-                        value: _vm.image !== "",
-                        expression: "image!==''",
-                      },
-                    ],
-                    staticStyle: { width: "200px" },
-                    attrs: { src: _vm.image, alt: "imagen del producto" },
-                  }),
+                  _c(
+                    "div",
+                    {
+                      staticClass: "d-flex justify-content-center",
+                      staticStyle: { width: "200px", height: "200px" },
+                    },
+                    [
+                      _c("img", {
+                        staticClass:
+                          "mh-100 mw-100 d-flex justify-content-center",
+                        attrs: { src: _vm.image, alt: "imagen del producto" },
+                      }),
+                    ]
+                  ),
                 ]
               ),
               _vm._v(" "),

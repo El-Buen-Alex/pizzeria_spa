@@ -61,6 +61,9 @@ class ProductController extends Controller
                     ]);
                 }
             }, 5);
+        }else if($request->method==='put'){
+            $product=Product::query()->find($request->id);
+            $this->update($request,  $product);
         }
         //$product  = Product::create($request->post());
         
@@ -99,10 +102,26 @@ class ProductController extends Controller
     public function update(Request $request, Product $product)
     {
         //
-        $product->fill($request->post())->save();
-        return response()->json([
-            'product'=>$product
-        ]);
+        // $product->fill($request->post())->save();
+        // return response()->json([
+        //     'product'=>$product
+        // ]);
+        return DB::transaction(function () use ($request, $product) {
+            if($request->file('image')!=null){
+                $image = $request->image;
+                $url_image= $image->store('','images_products');
+                $url_image='/images/products/'.$url_image;
+                $product->url_img=$url_image;
+            }
+            $product->name=$request->name;
+            $product->price=$request->price;
+            $product->id_prCategory=$request->id_prCategory;
+            $product->save();
+            return response()->json([
+                'category'=>$product,
+                'message'=>"category saved successfully!"
+           ]); 
+         }, 5);
     }
 
     /**

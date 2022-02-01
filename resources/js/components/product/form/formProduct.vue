@@ -9,9 +9,11 @@
                 </div>
                 <div class="card-body">
                     <form enctype="multipart/form-data" >
-                            <div class="row">
-                                <div class="col-12 d-flex justify-content-center pb-2">
-                                    <img v-show="image!==''" :src="image" class="" style="width:200px"  alt="imagen del producto" > 
+                            <div class="row ">
+                                <div class="col-12 pb-2 d-flex justify-content-center"  v-show="image!==''" >
+                                    <div class="d-flex justify-content-center"  style="width:200px; height:200px">
+                                        <img :src="image" class="mh-100 mw-100 d-flex justify-content-center"  alt="imagen del producto" > 
+                                    </div>
                                </div>
                                 <div class="col-12 pt-1">
                                     <div class="input-group mb-3">

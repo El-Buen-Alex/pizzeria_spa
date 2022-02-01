@@ -176,6 +176,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: 'formProduct',
   data: function data() {
@@ -1465,23 +1467,35 @@ var render = function () {
         _vm._v(" "),
         _c("div", { staticClass: "card-body" }, [
           _c("form", { attrs: { enctype: "multipart/form-data" } }, [
-            _c("div", { staticClass: "row" }, [
+            _c("div", { staticClass: "row " }, [
               _c(
                 "div",
-                { staticClass: "col-12 d-flex justify-content-center pb-2" },
+                {
+                  directives: [
+                    {
+                      name: "show",
+                      rawName: "v-show",
+                      value: _vm.image !== "",
+                      expression: "image!==''",
+                    },
+                  ],
+                  staticClass: "col-12 pb-2 d-flex justify-content-center",
+                },
                 [
-                  _c("img", {
-                    directives: [
-                      {
-                        name: "show",
-                        rawName: "v-show",
-                        value: _vm.image !== "",
-                        expression: "image!==''",
-                      },
-                    ],
-                    staticStyle: { width: "200px" },
-                    attrs: { src: _vm.image, alt: "imagen del producto" },
-                  }),
+                  _c(
+                    "div",
+                    {
+                      staticClass: "d-flex justify-content-center",
+                      staticStyle: { width: "200px", height: "200px" },
+                    },
+                    [
+                      _c("img", {
+                        staticClass:
+                          "mh-100 mw-100 d-flex justify-content-center",
+                        attrs: { src: _vm.image, alt: "imagen del producto" },
+                      }),
+                    ]
+                  ),
                 ]
               ),
               _vm._v(" "),

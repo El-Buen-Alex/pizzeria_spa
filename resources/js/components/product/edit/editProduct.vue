@@ -25,10 +25,26 @@ export default {
         this.setProductContext()
     },
     methods:{
-        editProduct(){
-            console.log("hola")
+        async editProduct(){
+            console.log(this.formSettings.productObject)
+            const formData=new FormData();
+            const newProduct=this.formSettings.productObject
+
+             formData.append('id',newProduct.id)
+            formData.append('name',newProduct.name)
+            formData.append('price', newProduct.price)
+            formData.append('image',newProduct.image)
+            formData.append('id_prCategory',newProduct.categoryId)
+            formData.append('method', 'put')
+            
+             await this.axios.post('/api/product',formData).then(response=>{
+                this.$emit('refreshCategories')
+                 this.$router.push({name:'showproducts'})
+             })
+
         },
         setProductContext(){
+            this.formSettings.productObject.id=this.productContext.id
             this.formSettings.productObject.name=this.productContext.name
             this.formSettings.productObject.price=this.productContext.price
             this.formSettings.productObject.image=this.productContext.url_img
