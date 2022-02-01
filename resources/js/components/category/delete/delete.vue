@@ -1,6 +1,6 @@
 
 <template>
-    <modal-vue :actionConfirmButton=deleteCategory :propertiesConfirmButton=confirmButton>
+    <modal-vue :actionConfirmButton=deleteCategory :propertiesConfirmButton=confirmButton :canPressButton="canPressButton">
             <h5 class="card-header">DELETE</h5>
             <div class="card-body">
                 <h5 class="card-title">DELETE CATEGORY</h5>
@@ -18,7 +18,8 @@ export default {
             confirmButton:{
                 class : 'btn btn-danger',
                 text : 'Delete Category'
-            }
+            },
+            canPressButton:true,
         }
     },
     components: {

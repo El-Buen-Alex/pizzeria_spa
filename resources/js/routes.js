@@ -18,6 +18,7 @@ const categorytemplate=()=>import('./components/category/show/plantilla/category
 const showProducts=()=>import('./components/product/show/showproducts.vue')
 const createProduct=()=>import('./components/product/create/createProduct.vue')
 const editProduct=()=>import('./components/product/edit/editProduct.vue')
+const deleteProduct=()=>import('./components/product/delete/deleteProduct.vue')
 
 export const routes = [
     {
@@ -60,6 +61,11 @@ export const routes = [
                         name:'editProduct',
                         path:'/product/editProduct',
                         component:editProduct
+                    },
+                    {
+                        name:'deleteProduct',
+                        path:'/product/deleteProduct',
+                        component:deleteProduct
                     }
                 ]
             },

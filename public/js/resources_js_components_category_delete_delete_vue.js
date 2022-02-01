@@ -30,7 +30,8 @@ __webpack_require__.r(__webpack_exports__);
       confirmButton: {
         "class": 'btn btn-danger',
         text: 'Delete Category'
-      }
+      },
+      canPressButton: true
     };
   },
   components: {
@@ -350,6 +351,7 @@ var render = function () {
       attrs: {
         actionConfirmButton: _vm.deleteCategory,
         propertiesConfirmButton: _vm.confirmButton,
+        canPressButton: _vm.canPressButton,
       },
     },
     [

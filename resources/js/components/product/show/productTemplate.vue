@@ -17,7 +17,7 @@
                  <div class="container my-0 py-0">
                       <div class="row flex justify-content-center ">
                         <button   type="button" class="col-12 btn btn-success my-1 px-1" @click="sendToEdit">EDITAR</button>
-                        <button  id="delete"  type="button" class="col-12 btn btn-danger my-1 px-1 ">ELIMINAR</button>
+                        <button  id="delete"  type="button" class="col-12 btn btn-danger my-1 px-1 " @click="sendToDelete">ELIMINAR</button>
                       </div>
                  </div>
                 
@@ -33,6 +33,9 @@
      methods:{
          sendToEdit(){
              this.$emit('sendToEdit',this.productObject)
+         },
+         sendToDelete(){
+             this.$emit('sendToDelete', this.productObject)
          }
      },
 

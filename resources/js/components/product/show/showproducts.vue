@@ -1,6 +1,6 @@
 import { template } from "lodash";
 <template>
-    <div >
+    <div v-show="productList.length>0">
        <div class="d-flex justify-content-center">
             <p class="fs-2">TODOS LOS PRODUCTOS</p>
        </div>
@@ -19,7 +19,7 @@ import { template } from "lodash";
                             </div>
                         </div>
                     </button>
-                <productTemplate v-for="product in productList" :key="product.id" :productObject="product" v-on:sendToEdit="setProductContext"/>
+                <productTemplate v-for="product in productList" :key="product.id" :productObject="product" v-on:sendToEdit="setProductContext" v-on:sendToDelete="deleteProduct"/>
                 <router-view v-on:refreshCategories="getListOfProductsByPagination" :productContext="productContext"></router-view>
            </div>
             <pagination :pagination="paginationObject" v-on:getProductsByPaginate="getListOfProductsByPagination"/>
@@ -57,6 +57,12 @@ export default {
         setProductContext(product){
             this.productContext=product
             this.$router.push({name:'editProduct'})
+        },
+        deleteProduct(product){
+            this.productContext=product
+            console.log(product)
+            this.$router.push({name:'deleteProduct'})
+
         }
     },
     components:{

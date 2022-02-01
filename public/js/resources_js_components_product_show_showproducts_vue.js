@@ -203,6 +203,9 @@ __webpack_require__.r(__webpack_exports__);
   methods: {
     sendToEdit: function sendToEdit() {
       this.$emit('sendToEdit', this.productObject);
+    },
+    sendToDelete: function sendToDelete() {
+      this.$emit('sendToDelete', this.productObject);
     }
   },
   props: {
@@ -312,6 +315,13 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       this.productContext = product;
       this.$router.push({
         name: 'editProduct'
+      });
+    },
+    deleteProduct: function deleteProduct(product) {
+      this.productContext = product;
+      console.log(product);
+      this.$router.push({
+        name: 'deleteProduct'
       });
     }
   },
@@ -1665,6 +1675,7 @@ var render = function () {
               {
                 staticClass: "col-12 btn btn-danger my-1 px-1 ",
                 attrs: { id: "delete", type: "button" },
+                on: { click: _vm.sendToDelete },
               },
               [_vm._v("ELIMINAR")]
             ),
@@ -1697,50 +1708,66 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [
-    _vm._m(0),
-    _vm._v(" "),
-    _c(
-      "div",
-      { staticClass: "container" },
-      [
-        _c(
-          "div",
-          { staticClass: "row my-4" },
-          [
-            _c(
-              "button",
-              {
-                staticClass: "btn col-md-3 col-12 boxCategory  py-1 my-1",
-                on: { click: _vm.sendToCreateProduct },
-              },
-              [_vm._m(1)]
-            ),
-            _vm._v(" "),
-            _vm._l(_vm.productList, function (product) {
-              return _c("productTemplate", {
-                key: product.id,
-                attrs: { productObject: product },
-                on: { sendToEdit: _vm.setProductContext },
-              })
-            }),
-            _vm._v(" "),
-            _c("router-view", {
-              attrs: { productContext: _vm.productContext },
-              on: { refreshCategories: _vm.getListOfProductsByPagination },
-            }),
-          ],
-          2
-        ),
-        _vm._v(" "),
-        _c("pagination", {
-          attrs: { pagination: _vm.paginationObject },
-          on: { getProductsByPaginate: _vm.getListOfProductsByPagination },
-        }),
+  return _c(
+    "div",
+    {
+      directives: [
+        {
+          name: "show",
+          rawName: "v-show",
+          value: _vm.productList.length > 0,
+          expression: "productList.length>0",
+        },
       ],
-      1
-    ),
-  ])
+    },
+    [
+      _vm._m(0),
+      _vm._v(" "),
+      _c(
+        "div",
+        { staticClass: "container" },
+        [
+          _c(
+            "div",
+            { staticClass: "row my-4" },
+            [
+              _c(
+                "button",
+                {
+                  staticClass: "btn col-md-3 col-12 boxCategory  py-1 my-1",
+                  on: { click: _vm.sendToCreateProduct },
+                },
+                [_vm._m(1)]
+              ),
+              _vm._v(" "),
+              _vm._l(_vm.productList, function (product) {
+                return _c("productTemplate", {
+                  key: product.id,
+                  attrs: { productObject: product },
+                  on: {
+                    sendToEdit: _vm.setProductContext,
+                    sendToDelete: _vm.deleteProduct,
+                  },
+                })
+              }),
+              _vm._v(" "),
+              _c("router-view", {
+                attrs: { productContext: _vm.productContext },
+                on: { refreshCategories: _vm.getListOfProductsByPagination },
+              }),
+            ],
+            2
+          ),
+          _vm._v(" "),
+          _c("pagination", {
+            attrs: { pagination: _vm.paginationObject },
+            on: { getProductsByPaginate: _vm.getListOfProductsByPagination },
+          }),
+        ],
+        1
+      ),
+    ]
+  )
 }
 var staticRenderFns = [
   function () {
