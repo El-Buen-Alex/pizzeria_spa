@@ -17,6 +17,7 @@ const categorytemplate=()=>import('./components/category/show/plantilla/category
 //componentes para productos
 const showProducts=()=>import('./components/product/show/showproducts.vue')
 const createProduct=()=>import('./components/product/create/createProduct.vue')
+const editProduct=()=>import('./components/product/edit/editProduct.vue')
 
 export const routes = [
     {
@@ -54,6 +55,11 @@ export const routes = [
                         name:'createProduct',
                         path:'/product/createProduct',
                         component:createProduct
+                    },
+                    {
+                        name:'editProduct',
+                        path:'/product/editProduct',
+                        component:editProduct
                     }
                 ]
             },

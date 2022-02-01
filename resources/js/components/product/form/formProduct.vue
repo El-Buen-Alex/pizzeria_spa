@@ -60,6 +60,7 @@ export default {
     },
     created(){
         this.getListOfCategories()
+        this.setPropDefault()
     },
     methods: {
         
@@ -105,6 +106,12 @@ export default {
                 this.previewImage=e.target.result;
             })
             reader.readAsDataURL(file)
+        },
+        setPropDefault(){
+            if(this.formSettings.productObject.image!==''){
+                 this.previewImage=this.formSettings.productObject.image
+            }
+           
         },
     },
     computed:{

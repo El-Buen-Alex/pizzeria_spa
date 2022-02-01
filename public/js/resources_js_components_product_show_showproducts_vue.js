@@ -200,6 +200,11 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  methods: {
+    sendToEdit: function sendToEdit() {
+      this.$emit('sendToEdit', this.productObject);
+    }
+  },
   props: {
     productObject: {
       type: Object,
@@ -260,14 +265,14 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
-//
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
       productList: [],
-      paginationObject: []
+      paginationObject: [],
+      productContext: {}
     };
   },
   created: function created() {},
@@ -301,6 +306,12 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     sendToCreateProduct: function sendToCreateProduct() {
       this.$router.push({
         name: 'createProduct'
+      });
+    },
+    setProductContext: function setProductContext(product) {
+      this.productContext = product;
+      this.$router.push({
+        name: 'editProduct'
       });
     }
   },
@@ -1637,39 +1648,33 @@ var render = function () {
           ]),
         ]),
         _vm._v(" "),
-        _vm._m(0),
+        _c("div", { staticClass: "container my-0 py-0" }, [
+          _c("div", { staticClass: "row flex justify-content-center " }, [
+            _c(
+              "button",
+              {
+                staticClass: "col-12 btn btn-success my-1 px-1",
+                attrs: { type: "button" },
+                on: { click: _vm.sendToEdit },
+              },
+              [_vm._v("EDITAR")]
+            ),
+            _vm._v(" "),
+            _c(
+              "button",
+              {
+                staticClass: "col-12 btn btn-danger my-1 px-1 ",
+                attrs: { id: "delete", type: "button" },
+              },
+              [_vm._v("ELIMINAR")]
+            ),
+          ]),
+        ]),
       ]),
     ]),
   ])
 }
-var staticRenderFns = [
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "container my-0 py-0" }, [
-      _c("div", { staticClass: "row flex justify-content-center " }, [
-        _c(
-          "button",
-          {
-            staticClass: "col-12 btn btn-success my-1 px-1 ",
-            attrs: { type: "button" },
-          },
-          [_vm._v("EDITAR")]
-        ),
-        _vm._v(" "),
-        _c(
-          "button",
-          {
-            staticClass: "col-12 btn btn-danger my-1 px-1 ",
-            attrs: { id: "delete", type: "button" },
-          },
-          [_vm._v("ELIMINAR")]
-        ),
-      ]),
-    ])
-  },
-]
+var staticRenderFns = []
 render._withStripped = true
 
 
@@ -1716,10 +1721,12 @@ var render = function () {
               return _c("productTemplate", {
                 key: product.id,
                 attrs: { productObject: product },
+                on: { sendToEdit: _vm.setProductContext },
               })
             }),
             _vm._v(" "),
             _c("router-view", {
+              attrs: { productContext: _vm.productContext },
               on: { refreshCategories: _vm.getListOfProductsByPagination },
             }),
           ],

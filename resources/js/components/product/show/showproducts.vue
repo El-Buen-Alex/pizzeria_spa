@@ -19,9 +19,8 @@ import { template } from "lodash";
                             </div>
                         </div>
                     </button>
-               <productTemplate v-for="product in productList" :key="product.id" :productObject="product"/>
-            <router-view v-on:refreshCategories="getListOfProductsByPagination"></router-view>
-
+                <productTemplate v-for="product in productList" :key="product.id" :productObject="product" v-on:sendToEdit="setProductContext"/>
+                <router-view v-on:refreshCategories="getListOfProductsByPagination" :productContext="productContext"></router-view>
            </div>
             <pagination :pagination="paginationObject" v-on:getProductsByPaginate="getListOfProductsByPagination"/>
        </div>
@@ -35,7 +34,9 @@ export default {
     data(){
         return {
             productList:[],
-            paginationObject:[]
+            paginationObject:[],
+            productContext:{}
+            
         }
     },
     created(){
@@ -45,19 +46,22 @@ export default {
         async getListOfProductsByPagination(paginate=0){
             await this.axios.get('/api/product?page='+paginate).then(response=>{
                  this.productList=response.data.data
-                console.log(this.productList)
+                    console.log(this.productList)
 
                  this.paginationObject=response.data
-            })
-           
+            }) 
         },
          sendToCreateProduct(){
             this.$router.push({name:'createProduct'})
+        },
+        setProductContext(product){
+            this.productContext=product
+            this.$router.push({name:'editProduct'})
         }
     },
     components:{
         productTemplate,
-        pagination
+        pagination,
     },
 }
 </script>
