@@ -8,7 +8,8 @@
 </p>
 
 ## About Aplication
-<p align="center">The present application shows two CRUDS in a web application based on a business</p>
+<p align="center">The present application shows two CRUDS in a web application based on a business. Tecnologies: Laravel+Vue_SPA</p>
+
 ## LOGIN
 ![alt text](/public/imagesdd/login.PNG)
 
