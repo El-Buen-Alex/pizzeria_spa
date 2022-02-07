@@ -8,4 +8,4 @@
 </p>
 
 ## About Aplication
-![alt text](https://github.com/[El-Buen-Alex]/[pizzeria_spa]/blob/[main]/pizzeria_spa.jpg?raw=true)
+![alt text](/public/images/pizzeria_spa.jpg)
