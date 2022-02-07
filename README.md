@@ -8,4 +8,4 @@
 </p>
 
 ## About Aplication
-![alt text](/public/images/pizzeria_spa.jpg)
+![alt text](/public/imagesdd/login.png)
