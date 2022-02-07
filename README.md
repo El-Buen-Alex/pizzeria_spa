@@ -8,4 +8,15 @@
 </p>
 
 ## About Aplication
+<p align="center">The present application shows two CRUDS in a web application based on a business</p>
+## LOGIN
 ![alt text](/public/imagesdd/login.PNG)
+
+## HOME
+![alt text](/public/imagesdd/home.PNG)
+
+## SHOW CATEGORIES
+![alt text](/public/imagesdd/categorias.PNG)
+
+## EDIT PRODUCT
+![alt text](/public/imagesdd/edit_product.PNG)
